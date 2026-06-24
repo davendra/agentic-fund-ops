@@ -140,7 +140,7 @@ Real exchanges captured from the Conversation API ([`samples/genie-demo.json`](s
 
 > **"What is the total capital called across all funds, by currency?"**
 > → `SELECT currency, SUM(total_called) … GROUP BY currency`
-> → **$2,430,825,000 USD · €462,500,000 EUR · £260,000,000 GBP**
+> → **$2,431,625,000 USD · €462,500,000 EUR · £260,000,000 GBP**
 
 > **"Which documents failed a validation check?"**
 > → `SELECT file_name, check_name … WHERE passed = false`

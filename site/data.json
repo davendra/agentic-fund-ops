@@ -4,8 +4,8 @@
     "capital_calls": 34,
     "distributions": 32,
     "capital_accounts": 25,
-    "usd_called": 2430825000.0,
-    "nav": 2111928821.0,
+    "usd_called": 2431625000.0,
+    "nav": 2114142321.0,
     "anomalies": 33,
     "funds": 7,
     "currencies": 3,
@@ -14,7 +14,7 @@
   "by_currency": [
     {
       "currency": "USD",
-      "total_called": 2430825000.0
+      "total_called": 2431625000.0
     },
     {
       "currency": "EUR",
@@ -173,7 +173,7 @@
     },
     {
       "fund": "CATALYST INFRASTRUCTURE PARTNERS FUND II, LLP",
-      "nav": 168363625.0
+      "nav": 170577125.0
     },
     {
       "fund": "Cornerstone Real Estate Partners Fund V, LP",
@@ -194,7 +194,7 @@
   ],
   "dist_by_type": [
     {
-      "type": "realized_gain",
+      "type": "income",
       "n": 9
     },
     {
@@ -202,12 +202,12 @@
       "n": 8
     },
     {
-      "type": "income",
-      "n": 7
+      "type": "realized_gain",
+      "n": 8
     },
     {
       "type": "return_of_capital",
-      "n": 5
+      "n": 4
     },
     {
       "type": "gp_carry",
@@ -233,7 +233,7 @@
     },
     {
       "yq": "2020-Q2",
-      "total_called": 9000000.0
+      "total_called": 10000000.0
     },
     {
       "yq": "2020-Q3",
@@ -241,7 +241,7 @@
     },
     {
       "yq": "2020-Q4",
-      "total_called": 15750000.0
+      "total_called": 15000000.0
     },
     {
       "yq": "2021-Q1",
@@ -249,7 +249,7 @@
     },
     {
       "yq": "2021-Q3",
-      "total_called": 9000000.0
+      "total_called": 10000000.0
     },
     {
       "yq": "2022-Q1",
@@ -277,7 +277,7 @@
     },
     {
       "yq": "2024-Q3",
-      "total_called": 274950000.0
+      "total_called": 274500000.0
     },
     {
       "yq": "2025-Q1",
@@ -302,16 +302,16 @@
   ],
   "fund_rankings": [
     {
+      "fund": "Pacific Credit Opportunities Fund II, LP",
+      "total_called": 624375000.0,
+      "calls": 5,
+      "avg_call": 124875000.0
+    },
+    {
       "fund": "Apex Capital Fund IV, L.P.",
       "total_called": 565000000.0,
       "calls": 6,
       "avg_call": 94166666.66666667
-    },
-    {
-      "fund": "Pacific Credit Opportunities Fund II, LP",
-      "total_called": 539375000.0,
-      "calls": 4,
-      "avg_call": 134843750.0
     },
     {
       "fund": "Cornerstone Real Estate Partners Fund V, LP",
@@ -332,16 +332,16 @@
       "avg_call": 112500000.0
     },
     {
-      "fund": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
-      "total_called": 296500000.0,
-      "calls": 3,
-      "avg_call": 98833333.33333333
-    },
-    {
       "fund": "Catalyst Infrastructure Partners Fund II, LLP",
       "total_called": 260000000.0,
       "calls": 2,
       "avg_call": 130000000.0
+    },
+    {
+      "fund": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
+      "total_called": 211500000.0,
+      "calls": 2,
+      "avg_call": 105750000.0
     },
     {
       "fund": "European Growth Capital SCSp",
@@ -511,6 +511,13 @@
       "detail": "roll-forward=2.02571112E8 vs closing=2.06710243E8"
     },
     {
+      "file": "catalyst-infrastructure-ii__catalyst-capital-account-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=2044075.0 vs closing=2213500.0"
+    },
+    {
       "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
       "doc_type": "distribution",
       "check": "waterfall_reconciles",
@@ -620,7 +627,7 @@
       "doc_type": "capital_call",
       "check": "line_items_reconcile",
       "severity": "warning",
-      "detail": "components=2.095E8 vs total=1.95E8"
+      "detail": "components=1.7435E8 vs total=1.95E8"
     },
     {
       "file": "pacific-credit-ii__capital-call-notice-2.pdf",
@@ -628,13 +635,6 @@
       "check": "line_items_reconcile",
       "severity": "warning",
       "detail": "components=1.099815E8 vs total=1.3E8"
-    },
-    {
-      "file": "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
-      "doc_type": "capital_call",
-      "check": "line_items_reconcile",
-      "severity": "warning",
-      "detail": "components=1.1275E8 vs total=1.115E8"
     }
   ]
 }

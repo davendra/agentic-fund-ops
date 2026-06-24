@@ -3,16 +3,16 @@
     {
       "doc_type": "capital_account",
       "severity": "error",
-      "pass": 23,
+      "pass": 24,
       "fail": 0,
-      "na": 2
+      "na": 1
     },
     {
       "doc_type": "capital_account",
       "severity": "warning",
       "pass": 2,
-      "fail": 20,
-      "na": 3
+      "fail": 21,
+      "na": 2
     },
     {
       "doc_type": "capital_call",
@@ -32,8 +32,8 @@
       "doc_type": "capital_call",
       "severity": "warning",
       "pass": 79,
-      "fail": 8,
-      "na": 15
+      "fail": 7,
+      "na": 16
     },
     {
       "doc_type": "distribution",
@@ -157,6 +157,13 @@
       "detail": "roll-forward=2.02571112E8 vs closing=2.06710243E8"
     },
     {
+      "file": "catalyst-infrastructure-ii__catalyst-capital-account-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=2044075.0 vs closing=2213500.0"
+    },
+    {
       "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
       "doc_type": "distribution",
       "check": "waterfall_reconciles",
@@ -266,7 +273,7 @@
       "doc_type": "capital_call",
       "check": "line_items_reconcile",
       "severity": "warning",
-      "detail": "components=2.095E8 vs total=1.95E8"
+      "detail": "components=1.7435E8 vs total=1.95E8"
     },
     {
       "file": "pacific-credit-ii__capital-call-notice-2.pdf",
@@ -274,13 +281,6 @@
       "check": "line_items_reconcile",
       "severity": "warning",
       "detail": "components=1.099815E8 vs total=1.3E8"
-    },
-    {
-      "file": "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
-      "doc_type": "capital_call",
-      "check": "line_items_reconcile",
-      "severity": "warning",
-      "detail": "components=1.1275E8 vs total=1.115E8"
     }
   ]
 }
