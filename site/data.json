@@ -1,0 +1,428 @@
+{
+  "generated_note": "Point-in-time snapshot of synthetic fund_ops.silver data.",
+  "kpis": {
+    "capital_calls": 34,
+    "distributions": 32,
+    "usd_called": 2431825000.0,
+    "anomalies": 13,
+    "funds": 7,
+    "currencies": 3,
+    "gold_docs": 19
+  },
+  "by_currency": [
+    {
+      "currency": "USD",
+      "total_called": 2431825000.0
+    },
+    {
+      "currency": "EUR",
+      "total_called": 462500000.0
+    },
+    {
+      "currency": "GBP",
+      "total_called": 260000000.0
+    }
+  ],
+  "docs_by_fund": [
+    {
+      "fund": "apex",
+      "doc_type": "capital_call",
+      "n": 6
+    },
+    {
+      "fund": "apex",
+      "doc_type": "distribution",
+      "n": 4
+    },
+    {
+      "fund": "apex-capital-fund-iii",
+      "doc_type": "capital_call",
+      "n": 2
+    },
+    {
+      "fund": "apex-capital-fund-iii",
+      "doc_type": "distribution",
+      "n": 1
+    },
+    {
+      "fund": "catalyst",
+      "doc_type": "capital_call",
+      "n": 2
+    },
+    {
+      "fund": "catalyst",
+      "doc_type": "distribution",
+      "n": 2
+    },
+    {
+      "fund": "catalyst-infrastructure-ii",
+      "doc_type": "distribution",
+      "n": 2
+    },
+    {
+      "fund": "cornerstone-re-v",
+      "doc_type": "capital_call",
+      "n": 3
+    },
+    {
+      "fund": "cornerstone-re-v",
+      "doc_type": "distribution",
+      "n": 4
+    },
+    {
+      "fund": "european-growth",
+      "doc_type": "capital_call",
+      "n": 5
+    },
+    {
+      "fund": "european-growth",
+      "doc_type": "distribution",
+      "n": 6
+    },
+    {
+      "fund": "greenfield",
+      "doc_type": "capital_call",
+      "n": 8
+    },
+    {
+      "fund": "greenfield",
+      "doc_type": "distribution",
+      "n": 5
+    },
+    {
+      "fund": "greenfield-ventures-iii",
+      "doc_type": "capital_call",
+      "n": 1
+    },
+    {
+      "fund": "meridian",
+      "doc_type": "distribution",
+      "n": 5
+    },
+    {
+      "fund": "pacific-credit",
+      "doc_type": "capital_call",
+      "n": 5
+    },
+    {
+      "fund": "pacific-credit",
+      "doc_type": "distribution",
+      "n": 2
+    },
+    {
+      "fund": "pacific-credit-ii",
+      "doc_type": "capital_call",
+      "n": 2
+    },
+    {
+      "fund": "pacific-credit-ii",
+      "doc_type": "distribution",
+      "n": 1
+    }
+  ],
+  "dist_by_type": [
+    {
+      "type": "realized_gain",
+      "n": 9
+    },
+    {
+      "type": "final",
+      "n": 8
+    },
+    {
+      "type": "income",
+      "n": 7
+    },
+    {
+      "type": "return_of_capital",
+      "n": 5
+    },
+    {
+      "type": "gp_carry",
+      "n": 2
+    },
+    {
+      "type": "(unspecified)",
+      "n": 1
+    }
+  ],
+  "trend": [
+    {
+      "yq": "2019-Q1",
+      "total_called": 110000000.0
+    },
+    {
+      "yq": "2019-Q3",
+      "total_called": 150000000.0
+    },
+    {
+      "yq": "2020-Q1",
+      "total_called": 75000000.0
+    },
+    {
+      "yq": "2020-Q2",
+      "total_called": 9000000.0
+    },
+    {
+      "yq": "2020-Q3",
+      "total_called": 287500000.0
+    },
+    {
+      "yq": "2020-Q4",
+      "total_called": 15750000.0
+    },
+    {
+      "yq": "2021-Q1",
+      "total_called": 270000000.0
+    },
+    {
+      "yq": "2021-Q3",
+      "total_called": 10000000.0
+    },
+    {
+      "yq": "2022-Q1",
+      "total_called": 11000000.0
+    },
+    {
+      "yq": "2022-Q2",
+      "total_called": 170000000.0
+    },
+    {
+      "yq": "2023-Q2",
+      "total_called": 440000000.0
+    },
+    {
+      "yq": "2023-Q3",
+      "total_called": 186000000.0
+    },
+    {
+      "yq": "2024-Q1",
+      "total_called": 113000000.0
+    },
+    {
+      "yq": "2024-Q2",
+      "total_called": 280000000.0
+    },
+    {
+      "yq": "2024-Q3",
+      "total_called": 274950000.0
+    },
+    {
+      "yq": "2025-Q1",
+      "total_called": 3750000.0
+    },
+    {
+      "yq": "2025-Q2",
+      "total_called": 111500000.0
+    },
+    {
+      "yq": "2026-Q1",
+      "total_called": 367187500.0
+    },
+    {
+      "yq": "2026-Q3",
+      "total_called": 150000000.0
+    },
+    {
+      "yq": "2027-Q1",
+      "total_called": 119687500.0
+    }
+  ],
+  "fund_rankings": [
+    {
+      "fund": "Pacific Credit Opportunities Fund II, LP",
+      "total_called": 650875000.0,
+      "calls": 5,
+      "avg_call": 130175000.0
+    },
+    {
+      "fund": "Apex Capital Fund IV, L.P.",
+      "total_called": 565000000.0,
+      "calls": 6,
+      "avg_call": 94166666.66666667
+    },
+    {
+      "fund": "Cornerstone Real Estate Partners Fund V, LP",
+      "total_called": 450000000.0,
+      "calls": 2,
+      "avg_call": 225000000.0
+    },
+    {
+      "fund": "Apex Capital Partners Fund III, LP",
+      "total_called": 350000000.0,
+      "calls": 2,
+      "avg_call": 175000000.0
+    },
+    {
+      "fund": "EUROPEAN GROWTH CAPITAL SCSP",
+      "total_called": 337500000.0,
+      "calls": 3,
+      "avg_call": 112500000.0
+    },
+    {
+      "fund": "Catalyst Infrastructure Partners Fund II, LLP",
+      "total_called": 260000000.0,
+      "calls": 2,
+      "avg_call": 130000000.0
+    },
+    {
+      "fund": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
+      "total_called": 185000000.0,
+      "calls": 2,
+      "avg_call": 92500000.0
+    },
+    {
+      "fund": "European Growth Capital SCSp",
+      "total_called": 125000000.0,
+      "calls": 2,
+      "avg_call": 62500000.0
+    },
+    {
+      "fund": "Cornerstone Real Estate Partners Fund V Offshore Feeder, Ltd.",
+      "total_called": 90000000.0,
+      "calls": 1,
+      "avg_call": 90000000.0
+    },
+    {
+      "fund": "Greenfield Ventures Fund III, LP",
+      "total_called": 72500000.0,
+      "calls": 1,
+      "avg_call": 72500000.0
+    }
+  ],
+  "eval": {
+    "accuracy_pct": {
+      "ai_query": 96.7,
+      "ai_extract": 81.1
+    },
+    "by_field_pct": {
+      "ai_query": {
+        "fund_name": 100.0,
+        "call_number": 100.0,
+        "notice_date": 100.0,
+        "total_called": 100.0,
+        "currency": 100.0,
+        "management_fee": 100.0,
+        "commitment_base": 75.0,
+        "distribution_number": 100.0,
+        "distribution_date": 100.0,
+        "total_proceeds": 88.9,
+        "return_of_capital": 100.0,
+        "preferred_return": 80.0,
+        "due_date": 100.0,
+        "gp_catchup": 100.0
+      },
+      "ai_extract": {
+        "fund_name": 84.2,
+        "call_number": 77.8,
+        "notice_date": 77.8,
+        "total_called": 66.7,
+        "currency": 78.9,
+        "management_fee": 71.4,
+        "commitment_base": 62.5,
+        "distribution_number": 100.0,
+        "distribution_date": 100.0,
+        "total_proceeds": 88.9,
+        "return_of_capital": 100.0,
+        "preferred_return": 80.0,
+        "due_date": 66.7,
+        "gp_catchup": 100.0
+      }
+    },
+    "gold_docs": 19,
+    "scored": 122
+  },
+  "anomalies": [
+    {
+      "file": "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
+      "doc_type": "capital_call",
+      "check": "fee_rate_plausible",
+      "severity": "info",
+      "detail": "rate=8.9%"
+    },
+    {
+      "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.85E8 vs total=2.0E8"
+    },
+    {
+      "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=1.74348E8 vs total=1.8E8"
+    },
+    {
+      "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.028125E8 vs total=1.1E8"
+    },
+    {
+      "file": "cornerstone-re-v__CORNERSTONE-FINAL-DISTRIBUTIONS-2030.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=1.74575E9 vs total=1.8835E9"
+    },
+    {
+      "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=9.925E7 vs total=2.7E8"
+    },
+    {
+      "file": "cornerstone-re-v__capital-call-2-domestic-cornerstone-re-v.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=8.1E7 vs total=1.8E8"
+    },
+    {
+      "file": "cornerstone-re-v__distribution-1-cornerstone-re-v.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=4.1E7 vs total=4.5E7"
+    },
+    {
+      "file": "european-growth__EGC-FINAL-DISTRIBUTION-2029-10-01.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=5.17825E8 vs total=2.85E8"
+    },
+    {
+      "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=6.85E7 vs total=7.25E7"
+    },
+    {
+      "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.7435E8 vs total=1.95E8"
+    },
+    {
+      "file": "pacific-credit-ii__capital-call-notice-2.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.099815E8 vs total=1.3E8"
+    },
+    {
+      "file": "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.1275E8 vs total=1.115E8"
+    }
+  ]
+}

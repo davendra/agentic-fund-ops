@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agentic Fund-Ops — trustworthy fund-document automation on Databricks</title>
+  <meta name="description" content="An AI agent that turns messy fund-administration PDFs into governed, validated, queryable data on Databricks. A hands-on agentic data-engineering demo over 100% synthetic data." />
+  <meta property="og:title" content="Agentic Fund-Ops" />
+  <meta property="og:description" content="Trustworthy fund-document automation on Databricks — AI extracts, deterministic code gates. 96.7% measured extraction accuracy over synthetic fund data." />
+  <meta property="og:image" content="assets/hero.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">
+      <img src="assets/logo.jpg" alt="Agentic Fund-Ops logo" width="34" height="34" />
+      <span>Agentic&nbsp;Fund-Ops</span>
+    </a>
+    <nav>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#data">Data</a>
+      <a href="#accuracy">Accuracy</a>
+      <a href="#dashboards">Dashboards</a>
+      <a class="btn btn-ghost" href="https://github.com/davendra/agentic-fund-ops" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Agentic data engineering · Databricks</span>
+        <h1>Messy fund PDFs → governed, validated, queryable data.</h1>
+        <p>An AI agent parses capital-call and distribution notices, extracts structured fields with an LLM, <strong>gates the model with deterministic arithmetic</strong>, and lands governed Delta tables — then serves them through Genie, dashboards and an MLflow eval. Built end-to-end on Databricks.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/davendra/agentic-fund-ops" target="_blank" rel="noopener">View the code</a>
+          <a class="btn btn-ghost" href="#dashboards">See the dashboards</a>
+        </div>
+        <p class="synthetic-note">100% synthetic data · a hands-on demonstration, not a production system.</p>
+      </div>
+      <div class="hero-art">
+        <img src="assets/hero.jpg" alt="Agentic Fund-Ops — trustworthy fund-document automation on Databricks" />
+      </div>
+    </section>
+
+    <!-- BY THE NUMBERS -->
+    <section class="band" id="numbers">
+      <div class="kpis" id="kpis"><!-- populated by app.js --></div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="section" id="pipeline">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Five set-based stages over native Databricks AI Functions — the model handles judgment, deterministic SQL handles trust.</p>
+      </div>
+      <img class="figure" src="assets/infographic-pipeline.jpg" alt="Pipeline: ingest, parse (ai_parse_document), extract (ai_query), validate (deterministic SQL), serve (Genie + dashboard)" />
+      <div class="steps">
+        <div class="step"><span class="step-k">Parse</span><code>ai_parse_document</code><p>Every PDF → text in one warehouse query.</p></div>
+        <div class="step"><span class="step-k">Extract</span><code>ai_query</code><p>Structured JSON into typed columns, schema-driven.</p></div>
+        <div class="step"><span class="step-k">Classify</span><code>ai_classify</code><p>Doc-type routing, cross-checked 66/66.</p></div>
+        <div class="step"><span class="step-k">Validate</span><code>deterministic SQL</code><p>Arithmetic reconciliation — the trust gate.</p></div>
+        <div class="step"><span class="step-k">Serve</span><code>Genie · AI/BI · MLflow</code><p>Query, visualise, and measure the output.</p></div>
+      </div>
+    </section>
+
+    <!-- DATA / CHARTS -->
+    <section class="section alt" id="data">
+      <div class="section-head">
+        <h2>The data, live</h2>
+        <p>A point-in-time snapshot of the governed <code>fund_ops.silver</code> tables — every capital-call and distribution notice the pipeline processed.</p>
+      </div>
+      <div class="chart-grid">
+        <div class="card"><h3>Capital called by currency</h3><canvas id="chart-currency"></canvas></div>
+        <div class="card"><h3>Documents processed by fund</h3><canvas id="chart-funds"></canvas></div>
+        <div class="card"><h3>Distributions by type</h3><canvas id="chart-disttype"></canvas></div>
+        <div class="card wide"><h3>Capital calls trend</h3><canvas id="chart-trend"></canvas></div>
+      </div>
+    </section>
+
+    <!-- ACCURACY -->
+    <section class="section" id="accuracy">
+      <div class="section-head">
+        <h2>Measure before you trust</h2>
+        <p>Two native extraction strategies, scored field-by-field against <span id="gold-docs">19</span> hand-verified gold documents. The structured <code>ai_query</code> approach wins decisively — and the eval harness is <em>why</em> we know, rather than guess.</p>
+      </div>
+      <div class="accuracy-row">
+        <div class="card"><canvas id="chart-eval"></canvas></div>
+        <div class="card validation">
+          <h3>Deterministic validation flagged <span class="hl" id="anom-count">13</span> anomalies</h3>
+          <p class="muted">Hard checks all pass; the warnings are the value — reconciliation breaks and outliers surfaced for human review.</p>
+          <div class="table-wrap"><table id="anom-table"><thead><tr><th>Document</th><th>Check</th><th>Severity</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARDS -->
+    <section class="section alt" id="dashboards">
+      <div class="section-head">
+        <h2>Databricks AI/BI dashboards</h2>
+        <p>Two dashboards over the same governed tables — a deep Genie-scaffolded analytical view, and the pipeline's own operational overview.</p>
+      </div>
+
+      <div class="dash">
+        <div class="dash-copy">
+          <h3>Capital Calls Analysis</h3>
+          <span class="tag">Scaffolded with Databricks AI/BI + Genie</span>
+          <p>Nine analytical tabs — Executive Summary, Fund Performance Rankings, Year-over-Year, Quarterly Breakdown and more — with global fund and date-range filters.</p>
+        </div>
+        <figure><img src="assets/dashboards/cc-executive-summary.png" alt="Capital Calls Analysis — Executive Summary: KPI tiles and capital-calls trend" /><figcaption>Executive Summary</figcaption></figure>
+        <figure><img src="assets/dashboards/cc-fund-rankings.png" alt="Capital Calls Analysis — Fund Performance Rankings: rankings table and top-fund bar charts" /><figcaption>Fund Performance Rankings</figcaption></figure>
+      </div>
+
+      <div class="dash">
+        <div class="dash-copy">
+          <h3>Agentic Fund-Ops Overview</h3>
+          <span class="tag">The pipeline's operational dashboard</span>
+          <p>KPI tiles, capital-by-currency and documents-by-fund charts, and a live validation-anomalies review table — the same numbers the validation and eval stages produce.</p>
+        </div>
+        <figure class="wide"><img src="assets/dashboards/fundops-overview-charts.png" alt="Agentic Fund-Ops Overview — capital called by currency and documents processed by fund" /><figcaption>Capital by currency · documents by fund</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- BUILT WITH -->
+    <section class="section" id="built">
+      <div class="section-head"><h2>Built with</h2></div>
+      <ul class="chips">
+        <li>Unity Catalog</li><li>ai_parse_document</li><li>ai_query</li><li>ai_extract</li><li>ai_classify</li>
+        <li>Genie</li><li>AI/BI Dashboards</li><li>MLflow</li><li>Asset Bundles</li><li>serverless SQL</li>
+        <li>Claude Code + Databricks agent-skills</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <strong>Agentic Fund-Ops</strong> — a hands-on demonstration of agentic data engineering on Databricks (Free Edition). Built and run by Claude Code + Databricks' official agent-skills. The data is 100% synthetic; the engineering is real.
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/davendra/agentic-fund-ops" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/davendra/agentic-fund-ops/blob/main/docs/architecture.md" target="_blank" rel="noopener">Architecture</a>
+      <a href="https://github.com/davendra/agentic-fund-ops/blob/main/LICENSE" target="_blank" rel="noopener">MIT</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
