@@ -148,9 +148,9 @@ On top of the governed `fund_ops.silver` tables, two **Databricks AI/BI dashboar
 
 ### 1. Capital Calls Analysis
 
-A deep analytical dashboard built with Databricks AI/BI + **Genie**, spanning **nine tabs** — *Executive Summary · Total Cost Analysis · Fund Performance Rankings · Investment vs Fees · Expense Analysis · Overview · Year-over-Year Analysis · Quarterly Breakdown · Fund Comparison by Quarter* — with global **Select Fund** and **Due Date Range** filters.
+A deep analytical dashboard scaffolded with Databricks AI/BI + **Genie** (natural language → dashboard), spanning **nine tabs** — *Executive Summary · Total Cost Analysis · Fund Performance Rankings · Investment vs Fees · Expense Analysis · Overview · Year-over-Year Analysis · Quarterly Breakdown · Fund Comparison by Quarter* — with global **Select Fund** and **Due Date Range** filters.
 
-**Executive Summary** — headline KPI tiles (total capital called, total calls = 34, average call size ≈ $92.8M, average management-fee rate) above a *Capital Calls Trend* line chart by year-quarter (2019 → 2027).
+**Executive Summary** — headline KPI tiles (total capital called, total calls = 34, average call size ≈ $92.8M) above a *Capital Calls Trend* line chart by year-quarter.
 
 ![Capital Calls Analysis — Executive Summary tab: KPI tiles and the capital-calls trend over time](assets/dashboards/cc-executive-summary.png)
 
@@ -160,7 +160,7 @@ A deep analytical dashboard built with Databricks AI/BI + **Genie**, spanning **
 
 ### 2. Agentic Fund-Ops Overview
 
-The pipeline's own operational dashboard — defined in [`dashboards/fund_ops.lvdash.json`](dashboards/fund_ops.lvdash.json) and deployable with [`setup/05_create_dashboard.sh`](setup/05_create_dashboard.sh). It surfaces KPI tiles (capital calls, distributions, USD capital called, anomalies flagged), the two charts below (**capital called by currency** and **documents processed by fund**, split by doc type), distributions-by-type, and the live **validation-anomalies review table** — the same numbers the validation and eval stages produce.
+The pipeline's own operational dashboard — defined in [`dashboards/fund_ops.lvdash.json`](dashboards/fund_ops.lvdash.json) and deployable with [`setup/05_create_dashboard.sh`](setup/05_create_dashboard.sh). It surfaces KPI tiles (capital calls, distributions, USD capital called, anomalies flagged), a distributions-by-type breakdown, and a live **validation-anomalies review table** — the same numbers the validation and eval stages produce. The two panels shown below are **capital called by currency** and **documents processed by fund** (split by document type).
 
 ![Agentic Fund-Ops Overview — capital called by currency, and documents processed by fund split by document type](assets/dashboards/fundops-overview-charts.png)
 
