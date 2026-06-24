@@ -49,6 +49,7 @@ Built as a hands-on demonstration of **agentic data engineering** on Databricks.
 | Classify | **`ai_classify`** | Validate doc-type routing |
 | Validate | **deterministic SQL** | Arithmetic reconciliation — the trust gate |
 | Serve | **Genie Space** | Natural-language → SQL over the silver tables |
+| Visualise | **AI/BI Dashboard** (Lakeview) | KPIs, charts + the live anomaly table over the silver tables |
 | Evaluate | **MLflow** (GenAI eval) | Score extraction accuracy vs a gold set |
 | Deploy | **Asset Bundle** → Job | One-command, scheduled, serverless |
 
@@ -113,8 +114,9 @@ uv pip install --python .venv/bin/python databricks-sdk mlflow pypdf
 # 2. end-to-end: probe → bootstrap → ingest → parse → extract → validate → evaluate
 ./run.sh
 
-# 3. natural-language layer + deployable Job
-.venv/bin/python setup/03_genie_demo.py
+# 3. natural-language layer, AI/BI dashboard, deployable Job
+.venv/bin/python setup/03_genie_demo.py                       # Genie NL→SQL transcript
+.venv/bin/python setup/04_build_dashboard.py && ./setup/05_create_dashboard.sh   # AI/BI dashboard
 databricks bundle validate -p DEFAULT
 databricks bundle deploy -t dev -p DEFAULT     # creates the serverless Job
 databricks bundle run  fund_ops_pipeline -t dev -p DEFAULT
@@ -133,6 +135,8 @@ setup/
   00_probe_capabilities.py   what AI Functions / Genie are available
   01_bootstrap_uc.py         create catalog / schemas / volume
   03_genie_demo.py           NL → SQL transcript
+  04_build_dashboard.py      build the AI/BI dashboard JSON
+  05_create_dashboard.sh     create + publish the AI/BI dashboard
   gen_dab.py                 emit the bundle SQL from pipeline_sql
 src/
   00_ingest_corpus.py        PDFs → Unity Catalog Volume
@@ -143,6 +147,7 @@ src/
 schemas/                   extraction schemas (fields, descriptions, gold fields)
 eval/gold/                 19 hand-verified ground-truth labels (with provenance)
 genie/genie_space.json     Genie Space definition
+dashboards/                AI/BI (Lakeview) dashboard definition (.lvdash.json)
 databricks.yml             Asset Bundle
 resources/                 Job definition + auto-generated SQL tasks
 corpus/landing/            the committed 66-PDF dataset
@@ -153,7 +158,7 @@ samples/                   captured run artifacts (accuracy, Genie transcript)
 
 ## Tech
 
-Databricks — Unity Catalog · AI Functions (`ai_parse_document`, `ai_query`, `ai_extract`, `ai_classify`) · Foundation Model APIs · Genie · MLflow · Asset Bundles · serverless SQL. Python · `databricks-sdk`.
+Databricks — Unity Catalog · AI Functions (`ai_parse_document`, `ai_query`, `ai_extract`, `ai_classify`) · Foundation Model APIs · Genie · AI/BI Dashboards (Lakeview) · MLflow · Asset Bundles · serverless SQL. Python · `databricks-sdk`.
 
 ## A note on honesty
 

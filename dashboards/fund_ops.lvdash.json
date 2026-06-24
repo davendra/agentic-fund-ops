@@ -1,0 +1,486 @@
+{
+  "datasets": [
+    {
+      "name": "ds_calls",
+      "displayName": "Capital calls",
+      "queryLines": [
+        "SELECT file_name, fund_name, total_called, currency FROM capital_calls"
+      ]
+    },
+    {
+      "name": "ds_dist",
+      "displayName": "Distributions",
+      "queryLines": [
+        "SELECT file_name, fund_name, total_proceeds, currency, coalesce(distribution_type,'(unspecified)') AS distribution_type FROM distributions"
+      ]
+    },
+    {
+      "name": "ds_validation",
+      "displayName": "Validation results",
+      "queryLines": [
+        "SELECT file_name, doc_type, check_name, severity, passed, detail FROM validation_results"
+      ]
+    },
+    {
+      "name": "ds_docs",
+      "displayName": "Documents by fund",
+      "queryLines": [
+        "SELECT split(file_name,'__')[0] AS fund, doc_type FROM capital_calls\n",
+        "UNION ALL\n",
+        "SELECT split(file_name,'__')[0] AS fund, doc_type FROM distributions"
+      ]
+    },
+    {
+      "name": "ds_anomalies",
+      "displayName": "Flagged anomalies",
+      "queryLines": [
+        "SELECT file_name, doc_type, check_name, severity, detail FROM validation_results\n",
+        "WHERE passed = false ORDER BY severity, file_name"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "overview",
+      "displayName": "Fund-Ops Overview",
+      "layout": [
+        {
+          "widget": {
+            "name": "header",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Agentic Fund-Ops \u2014 Document Automation Overview\n\n",
+                "AI-extracted, deterministically-validated data from **66 fund-administration PDFs** ",
+                "(capital calls + distribution notices, 7 funds, 3 currencies). ",
+                "The model extracts; arithmetic **validation gates** it \u2014 the anomalies table (bottom-right) ",
+                "is what a fund administrator would review. All data is synthetic."
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_calls",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_calls",
+                  "fields": [
+                    {
+                      "name": "calls",
+                      "expression": "COUNT(`file_name`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "calls",
+                  "displayName": "Capital calls"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Capital calls"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_dists",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_dist",
+                  "fields": [
+                    {
+                      "name": "dists",
+                      "expression": "COUNT(`file_name`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "dists",
+                  "displayName": "Distributions"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Distributions"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_usd",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_calls",
+                  "fields": [
+                    {
+                      "name": "usd_called",
+                      "expression": "SUM(CASE WHEN `currency`='USD' THEN `total_called` ELSE 0 END)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "usd_called",
+                  "displayName": "USD capital called",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 1
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "USD capital called"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_anom",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_validation",
+                  "fields": [
+                    {
+                      "name": "anomalies",
+                      "expression": "SUM(CASE WHEN `passed`=false THEN 1 ELSE 0 END)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "anomalies",
+                  "displayName": "Anomalies flagged"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Anomalies flagged"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_ccy",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_calls",
+                  "fields": [
+                    {
+                      "name": "currency",
+                      "expression": "`currency`"
+                    },
+                    {
+                      "name": "called",
+                      "expression": "SUM(`total_called`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "currency",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "currency"
+                },
+                "y": {
+                  "fieldName": "called",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Capital called by currency"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Capital called by currency"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 4,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_funds",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_docs",
+                  "fields": [
+                    {
+                      "name": "fund",
+                      "expression": "`fund`"
+                    },
+                    {
+                      "name": "docs",
+                      "expression": "COUNT(`fund`)"
+                    },
+                    {
+                      "name": "doc_type",
+                      "expression": "`doc_type`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "fund",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "fund"
+                },
+                "y": {
+                  "fieldName": "docs",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Documents processed by fund"
+                },
+                "color": {
+                  "fieldName": "doc_type",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "doc_type"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Documents processed by fund"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 6,
+            "width": 8,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_disttype",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_dist",
+                  "fields": [
+                    {
+                      "name": "distribution_type",
+                      "expression": "`distribution_type`"
+                    },
+                    {
+                      "name": "count",
+                      "expression": "COUNT(`file_name`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "distribution_type",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "distribution_type"
+                },
+                "y": {
+                  "fieldName": "count",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Distributions by type"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Distributions by type"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 12,
+            "width": 4,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "tbl_anom",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_anomalies",
+                  "fields": [
+                    {
+                      "name": "file_name",
+                      "expression": "`file_name`"
+                    },
+                    {
+                      "name": "doc_type",
+                      "expression": "`doc_type`"
+                    },
+                    {
+                      "name": "check_name",
+                      "expression": "`check_name`"
+                    },
+                    {
+                      "name": "severity",
+                      "expression": "`severity`"
+                    },
+                    {
+                      "name": "detail",
+                      "expression": "`detail`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "file_name",
+                    "displayName": "Document"
+                  },
+                  {
+                    "fieldName": "doc_type",
+                    "displayName": "Type"
+                  },
+                  {
+                    "fieldName": "check_name",
+                    "displayName": "Check"
+                  },
+                  {
+                    "fieldName": "severity",
+                    "displayName": "Severity"
+                  },
+                  {
+                    "fieldName": "detail",
+                    "displayName": "Detail"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Validation anomalies \u2014 flagged for review"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 12,
+            "width": 8,
+            "height": 7
+          }
+        }
+      ]
+    }
+  ]
+}
