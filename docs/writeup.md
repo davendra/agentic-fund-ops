@@ -6,7 +6,7 @@ I wanted a compact, end-to-end demonstration of **agentic data engineering on Da
 
 For six years I led AI & Automation at Alter Domus (a global fund administrator, ~$2.5tn AUM), where I built production agentic systems — multi-agent trade-settlement automation, an enterprise GenAI platform (605 → 4,000+ users), and intelligent document processing across regulated financial documents. The recurring lesson there: **an LLM that extracts data is only useful if something deterministic checks it.** That pattern — model for judgment, code for arithmetic, humans at the material gates — is the backbone of this project.
 
-The fund documents here come from my own [FundAdmin AI](https://github.com/davendra) work, so I could process realistic capital calls and distribution notices without touching any client or confidential material. Everything is synthetic.
+The fund documents here come from my own FundAdmin AI work, so I could process realistic capital calls and distribution notices without touching any client or confidential material. Everything is synthetic.
 
 ## What it demonstrates
 

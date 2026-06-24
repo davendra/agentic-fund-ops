@@ -9,6 +9,7 @@ under corpus/landing/ - so a fresh clone runs end-to-end without the source corp
 from __future__ import annotations
 import io
 import json
+import os
 import re
 import shutil
 import sys
@@ -17,7 +18,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import fundops_lib as fo  # noqa: E402
 
-CORPUS = Path("/Users/davendrapatel/Documents/GitHub/fundadmin-apps/fundadmin-ai/samples/output")
+# Optional: point at the full FundAdmin AI sample corpus to re-select all
+# call/distribution PDFs. If unset/absent, the committed corpus/landing/ is used.
+CORPUS = Path(os.environ.get("FUNDOPS_CORPUS_DIR", "/nonexistent-corpus"))
 REPO = Path(__file__).resolve().parents[1]
 DATASET = REPO / "corpus" / "landing"
 

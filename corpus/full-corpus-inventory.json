@@ -1,5 +1,5 @@
 {
-  "corpus_root": "/Users/davendrapatel/Documents/GitHub/fundadmin-apps/fundadmin-ai/samples/output",
+  "corpus_root": "<local FundAdmin AI sample corpus>",
   "total_files": 1145,
   "by_type": {
     "other": 664,

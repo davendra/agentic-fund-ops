@@ -7,7 +7,7 @@
 <table>
 <tr>
 <td><b>66</b><br>fund PDFs processed</td>
-<td><b>8</b><br>fund families, 3 currencies</td>
+<td><b>7</b><br>fund families, 3 currencies</td>
 <td><b>96.7%</b><br>field-extraction accuracy</td>
 <td><b>100%</b><br>native Databricks AI</td>
 </tr>
@@ -20,7 +20,7 @@ Built as a hands-on demonstration of **agentic data engineering** on Databricks.
 ## Architecture
 
 ```
- 66 fund PDFs (capital calls + distribution notices, 8 funds, USD/EUR/GBP)
+ 66 fund PDFs (capital calls + distribution notices, 7 funds, USD/EUR/GBP)
         │
         ▼  upload → Unity Catalog Volume  /Volumes/fund_ops/raw/landing
    ┌──────────────────────────────────────────────────────────────────┐
@@ -67,7 +67,7 @@ Two **native** strategies, scored field-by-field against 19 hand-verified gold d
 
 The 15-point gap is the whole point: the cheap `ai_extract` baseline silently failed on unfamiliar templates (all-null on some funds, grabbed *"$1.81x MOIC"* as a cash amount, a per-LP list as the commitment base). The eval harness **catches that** — so you ship the strategy you measured, not the one you hoped for. Logged to an MLflow experiment in the workspace.
 
-The remaining `ai_query` misses are genuine and honest — e.g. an explicit *"Preferred Return: SKIPPED"* the model returned as null, and a $1.8B commitment base derived from a `1.5% × $1.8B` fee line that the model under-read. (See [`samples/eval-detail.json`](samples/eval-detail.json).)
+The remaining `ai_query` misses are genuine and honest — e.g. a notice whose waterfall literally reads *"Preferred Return (8%): SKIPPED"* (gold `0`) that the model returned as null, and a $1.8B commitment base derived from a `1.5% × $1.8B` fee line that the model under-read. (See [`samples/eval-detail.json`](samples/eval-detail.json).)
 
 ### Deterministic validation — the trust gate
 
@@ -95,7 +95,7 @@ Real exchanges captured from the Conversation API ([`samples/genie-demo.json`](s
 
 ## The data
 
-100% **synthetic**. The inputs are capital-call and distribution-notice PDFs drawn from the author's own [FundAdmin AI](https://github.com/davendra) product sample corpus (1,145 synthetic files across fictional funds — *Apex*, *Greenfield*, *Catalyst*, *Pacific Credit*, *Cornerstone RE*, *Meridian*, *European Growth*). **Every** capital-call + distribution PDF in the corpus (66 documents, 8 fund families, USD/EUR/GBP) is processed — not a cherry-picked sample. No client or confidential data is used anywhere.
+100% **synthetic**. The inputs are capital-call and distribution-notice PDFs drawn from the author's own FundAdmin AI product sample corpus (1,145 synthetic files across fictional funds — *Apex*, *Greenfield*, *Catalyst*, *Pacific Credit*, *Cornerstone RE*, *Meridian*, *European Growth*). **Every** capital-call + distribution PDF in the corpus (66 documents, 7 fund families, USD/EUR/GBP) is processed — not a cherry-picked sample. No client or confidential data is used anywhere.
 
 The documents are deliberately heterogeneous: different layouts per fund, European vs American waterfalls, income vs return-of-capital distributions, recycled capital, multi-currency, and several **intentional inconsistencies** (a misclassified fee, a per-LP table that doesn't foot to the stated total) — which the validation layer is built to catch.
 
