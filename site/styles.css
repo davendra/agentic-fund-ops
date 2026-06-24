@@ -60,6 +60,9 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(11,31,51,.06);paddi
 .section-head h2{font-size:clamp(1.5rem,3.2vw,2.1rem)}
 .section-head p{color:var(--slate);max-width:62ch;margin:.6rem 0 0}
 .figure{width:100%;border-radius:12px;border:1px solid var(--line);margin:1.6rem 0;box-shadow:0 10px 30px -18px rgba(11,31,51,.4)}
+.src{font-family:var(--sans);font-size:.7rem;font-weight:600;vertical-align:middle;margin-left:.55rem;padding:.18rem .55rem;border-radius:999px;letter-spacing:.02em}
+.src.live{color:#0a8f7f;background:rgba(15,181,160,.14)}
+.src.snap{color:var(--slate);background:rgba(91,107,123,.14)}
 
 /* pipeline steps */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}

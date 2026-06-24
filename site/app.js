@@ -106,6 +106,17 @@ function anomalies(d) {
   ).join("");
 }
 
-fetch("data.json").then((r) => r.json()).then((d) => {
-  kpis(d); charts(d); anomalies(d);
-}).catch((e) => console.error("data load failed", e));
+function setSource(d) {
+  const el = document.getElementById("data-source");
+  if (!el) return;
+  if (d.live) { el.textContent = "● Live from Databricks"; el.className = "src live"; }
+  else { el.textContent = "● Snapshot"; el.className = "src snap"; }
+}
+
+// Try the live serverless endpoint (Vercel) first; fall back to the baked
+// snapshot (data.json) — which is what GitHub Pages serves.
+fetch("/api/data")
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error("no api"))))
+  .catch(() => fetch("data.json").then((r) => r.json()))
+  .then((d) => { kpis(d); charts(d); anomalies(d); setSource(d); })
+  .catch((e) => console.error("data load failed", e));

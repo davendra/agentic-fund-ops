@@ -72,8 +72,8 @@
     <!-- DATA / CHARTS -->
     <section class="section alt" id="data">
       <div class="section-head">
-        <h2>The data, live</h2>
-        <p>A point-in-time snapshot of the governed <code>fund_ops.silver</code> tables — every capital-call and distribution notice the pipeline processed.</p>
+        <h2>The data <span id="data-source" class="src">●</span></h2>
+        <p>Pulled from the governed <code>fund_ops.silver</code> tables — queried <strong>live from Databricks</strong> on this deployment, or a baked snapshot on the static mirror. Every capital-call and distribution notice the pipeline processed.</p>
       </div>
       <div class="chart-grid">
         <div class="card"><h3>Capital called by currency</h3><canvas id="chart-currency"></canvas></div>
