@@ -19,7 +19,7 @@
 ![Built with Claude Code](https://img.shields.io/badge/built_with-Claude_Code-E8B23A?logo=anthropic&logoColor=white)
 ![Data 100% synthetic](https://img.shields.io/badge/data-100%25_synthetic-5B6B7B)
 
-**[🔗 Live site](https://agentic-fund-ops.vercel.app)** (mirror: [GitHub Pages](https://davendra.github.io/agentic-fund-ops/)) · [Architecture & diagrams](docs/architecture.md) · [Brand](docs/brand.md) · [Sample outputs](samples) · [Writeup](docs/writeup.md)
+**[🔗 Live site](https://agentic-fund-ops.vercel.app)** — queries `fund_ops.silver` **live** via a Vercel serverless function · [static snapshot mirror](https://davendra.github.io/agentic-fund-ops/) on GitHub Pages · [Architecture & diagrams](docs/architecture.md) · [Brand](docs/brand.md) · [Writeup](docs/writeup.md)
 
 </div>
 
