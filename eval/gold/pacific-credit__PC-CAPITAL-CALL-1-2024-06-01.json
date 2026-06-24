@@ -1,0 +1,15 @@
+{
+  "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Pacific Credit Opportunities Fund II, LP",
+    "call_number": "1",
+    "notice_date": "2024-06-01",
+    "due_date": "2024-06-11",
+    "total_called": 85000000,
+    "currency": "USD",
+    "management_fee": null,
+    "commitment_base": 1250000000
+  },
+  "note": "stated total call $85M (pro-rata table rounds to 84.5M). No separate mgmt-fee amount."
+}

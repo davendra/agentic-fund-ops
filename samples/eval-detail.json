@@ -1,0 +1,1222 @@
+[
+  {
+    "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Apex Capital Partners Fund III, LP",
+    "ai_query_pred": "Apex Capital Partners Fund III, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Apex Capital Partners Fund III, LP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2026-01-15",
+    "ai_query_pred": "2026-01-15",
+    "ai_query_ok": true,
+    "ai_extract_pred": "January 15, 2026",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 200000000,
+    "ai_query_pred": "2.0E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$200,000,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "management_fee",
+    "gold": 10000000,
+    "ai_query_pred": "1.0E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$10,000,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 575000000,
+    "ai_query_pred": "5.75E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$575,000,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Apex Capital Partners Fund III, LP",
+    "ai_query_pred": "Apex Capital Partners Fund III, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Apex Capital Partners Fund III, LP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2026-10-31",
+    "ai_query_pred": "2026-10-31",
+    "ai_query_ok": true,
+    "ai_extract_pred": "October 31, 2026",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 80000000,
+    "ai_query_pred": "8.0E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "80000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+    "doc_type": "distribution",
+    "field": "return_of_capital",
+    "gold": 80000000,
+    "ai_query_pred": "8.0E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "80000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+    "doc_type": "distribution",
+    "field": "preferred_return",
+    "gold": 0,
+    "ai_query_pred": null,
+    "ai_query_ok": false,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Apex Capital Fund IV, L.P.",
+    "ai_query_pred": "Apex Capital Fund IV, L.P.",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Apex Capital Fund IV, L.P.",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "2",
+    "ai_query_pred": "2",
+    "ai_query_ok": true,
+    "ai_extract_pred": "2",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2020-07-15",
+    "ai_query_pred": "2020-07-15",
+    "ai_query_ok": true,
+    "ai_extract_pred": "July 15, 2020",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "due_date",
+    "gold": "2020-07-31",
+    "ai_query_pred": "2020-07-31",
+    "ai_query_ok": true,
+    "ai_extract_pred": "July 31, 2020",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 175000000,
+    "ai_query_pred": "1.75E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "175000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "management_fee",
+    "gold": 775000,
+    "ai_query_pred": "775000.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": "775000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 575000000,
+    "ai_query_pred": "5.75E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "575000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Apex Capital Fund IV, L.P.",
+    "ai_query_pred": "Apex Capital Fund IV, L.P.",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Apex Capital Fund IV, L.P.",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2023-12-15",
+    "ai_query_pred": "2023-12-15",
+    "ai_query_ok": true,
+    "ai_extract_pred": "December 15, 2023",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 120000000,
+    "ai_query_pred": "1.2E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$120,000,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "return_of_capital",
+    "gold": 80000000,
+    "ai_query_pred": "8.0E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$80,000,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "preferred_return",
+    "gold": 22000000,
+    "ai_query_pred": "2.2E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$22,000,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+    "doc_type": "distribution",
+    "field": "gp_catchup",
+    "gold": 5500000,
+    "ai_query_pred": "5500000.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$5,500,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_query_pred": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "CATALYST INFRASTRUCTURE PARTNERS FUND II, LLP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2026-02-28",
+    "ai_query_pred": "2026-02-28",
+    "ai_query_ok": true,
+    "ai_extract_pred": "28 February 2026",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 180000000,
+    "ai_query_pred": "1.8E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "180000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "GBP",
+    "ai_query_pred": "GBP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "GBP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+    "doc_type": "distribution",
+    "field": "return_of_capital",
+    "gold": 82000000,
+    "ai_query_pred": "8.2E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "82000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+    "doc_type": "distribution",
+    "field": "preferred_return",
+    "gold": 51240000,
+    "ai_query_pred": "5.124E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "51240000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+    "doc_type": "distribution",
+    "field": "gp_catchup",
+    "gold": 9040000,
+    "ai_query_pred": "9040000.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": "9040000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_query_pred": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2019-03-15",
+    "ai_query_pred": "2019-03-15",
+    "ai_query_ok": true,
+    "ai_extract_pred": "15 March 2019",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "due_date",
+    "gold": "2019-03-29",
+    "ai_query_pred": "2019-03-29",
+    "ai_query_ok": true,
+    "ai_extract_pred": "29 March 2019",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 110000000,
+    "ai_query_pred": "1.1E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1.1E8",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "GBP",
+    "ai_query_pred": "GBP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "GBP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "management_fee",
+    "gold": 7812500,
+    "ai_query_pred": "7812500.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": "7812500.0",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 825000000,
+    "ai_query_pred": "8.25E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "8.25E8",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_query_pred": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Catalyst Infrastructure Partners Fund II, LLP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2023-07-31",
+    "ai_query_pred": "2023-07-31",
+    "ai_query_ok": true,
+    "ai_extract_pred": "31 July 2023",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 29383499,
+    "ai_query_pred": "2.9383499E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "29383499",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "GBP",
+    "ai_query_pred": "GBP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "GBP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "cornerstone-re-v__CORNERSTONE-DISTRIBUTIONS-2023.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Cornerstone Real Estate Partners Fund V, LP",
+    "ai_query_pred": "Cornerstone Real Estate Partners Fund V, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__CORNERSTONE-DISTRIBUTIONS-2023.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Cornerstone Real Estate Partners Fund V, LP",
+    "ai_query_pred": "Cornerstone Real Estate Partners Fund V, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2023-06-15",
+    "ai_query_pred": "2023-06-15",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "due_date",
+    "gold": "2023-06-29",
+    "ai_query_pred": "2023-06-29",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 270000000,
+    "ai_query_pred": "2.7E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "management_fee",
+    "gold": 6750000,
+    "ai_query_pred": "6750000.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 1800000000,
+    "ai_query_pred": "6.9E8",
+    "ai_query_ok": false,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "European Growth Capital SCSp",
+    "ai_query_pred": "European Growth Capital SCSp",
+    "ai_query_ok": true,
+    "ai_extract_pred": "European Growth Capital SCSp",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2020-03-01",
+    "ai_query_pred": "2020-03-01",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1 March 2020",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "due_date",
+    "gold": "2020-03-13",
+    "ai_query_pred": "2020-03-13",
+    "ai_query_ok": true,
+    "ai_extract_pred": "13 March 2020",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 75000000,
+    "ai_query_pred": "7.5E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "75000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "EUR",
+    "ai_query_pred": "EUR",
+    "ai_query_ok": true,
+    "ai_extract_pred": "EUR",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "management_fee",
+    "gold": 3281250,
+    "ai_query_pred": "3281250.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": "3281250",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 750000000,
+    "ai_query_pred": "7.5E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "750000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "European Growth Capital SCSp",
+    "ai_query_pred": "EUROPEAN GROWTH CAPITAL SCSP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "EUROPEAN GROWTH CAPITAL SCSP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2025-01-15",
+    "ai_query_pred": "2025-01-15",
+    "ai_query_ok": true,
+    "ai_extract_pred": "15 January 2025",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 120000000,
+    "ai_query_pred": "1.2E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "320000000",
+    "ai_extract_ok": false
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "EUR",
+    "ai_query_pred": "EUR",
+    "ai_query_ok": true,
+    "ai_extract_pred": "EUR",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "return_of_capital",
+    "gold": 78000000,
+    "ai_query_pred": "7.8E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "78000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "preferred_return",
+    "gold": 42000000,
+    "ai_query_pred": "4.2E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "42000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+    "doc_type": "distribution",
+    "field": "gp_catchup",
+    "gold": 0,
+    "ai_query_pred": "0.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": "0",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Greenfield Ventures Fund III, LP",
+    "ai_query_pred": "Greenfield Ventures Fund III, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2026-03-11",
+    "ai_query_pred": "2026-03-11",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "due_date",
+    "gold": "2026-03-25",
+    "ai_query_pred": "2026-03-25",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 72500000,
+    "ai_query_pred": "7.25E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "management_fee",
+    "gold": 1812500,
+    "ai_query_pred": "1812500.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 290000000,
+    "ai_query_pred": "2.9E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Greenfield Ventures Fund I, L.P.",
+    "ai_query_pred": "Greenfield Ventures Fund I, L.P.",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Greenfield Ventures Fund I, L.P.",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2020-06-15",
+    "ai_query_pred": "2020-06-15",
+    "ai_query_ok": true,
+    "ai_extract_pred": "June 15, 2020",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 10000000,
+    "ai_query_pred": "1.0E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 100000000,
+    "ai_query_pred": "8.5E7",
+    "ai_query_ok": false,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Greenfield Ventures Fund I, L.P.",
+    "ai_query_pred": "GREENFIELD VENTURES FUND I, L.P.",
+    "ai_query_ok": true,
+    "ai_extract_pred": "GREENFIELD VENTURES FUND I, L.P.",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "01",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2024-05-20",
+    "ai_query_pred": "2024-05-20",
+    "ai_query_ok": true,
+    "ai_extract_pred": "May 20, 2024",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 4000000,
+    "ai_query_pred": "3800000.0",
+    "ai_query_ok": false,
+    "ai_extract_pred": "4000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Meridian Secondaries Fund I, L.P.",
+    "ai_query_pred": "MERIDIAN SECONDARIES FUND I, L.P.",
+    "ai_query_ok": true,
+    "ai_extract_pred": "MERIDIAN SECONDARIES FUND I, L.P.",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2032-08-14",
+    "ai_query_pred": "2032-08-14",
+    "ai_query_ok": true,
+    "ai_extract_pred": "August 14, 2032",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 116261000,
+    "ai_query_pred": "1.16261E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "116261000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Pacific Credit Opportunities Fund II, LP",
+    "ai_query_pred": "Pacific Credit Opportunities Fund II, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "Pacific Credit Opportunities Fund II, LP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2024-06-01",
+    "ai_query_pred": "2024-06-01",
+    "ai_query_ok": true,
+    "ai_extract_pred": "June 1, 2024",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 195000000,
+    "ai_query_pred": "1.95E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$195,000,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": null,
+    "ai_extract_ok": false
+  },
+  {
+    "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+    "doc_type": "capital_call",
+    "field": "management_fee",
+    "gold": 1850000,
+    "ai_query_pred": "1850000.0",
+    "ai_query_ok": true,
+    "ai_extract_pred": "$1,850,000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__distribution-income-q3-2024.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Pacific Credit Opportunities Fund II, LP",
+    "ai_query_pred": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__distribution-income-q3-2024.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2024-10-25",
+    "ai_query_pred": "2024-10-25",
+    "ai_query_ok": true,
+    "ai_extract_pred": "October 25, 2024",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__distribution-income-q3-2024.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 14481406,
+    "ai_query_pred": "1.4481406E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "14481406",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit-ii__distribution-income-q3-2024.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+    "doc_type": "capital_call",
+    "field": "fund_name",
+    "gold": "Pacific Credit Opportunities Fund II, LP",
+    "ai_query_pred": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+    "doc_type": "capital_call",
+    "field": "call_number",
+    "gold": "1",
+    "ai_query_pred": "1",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+    "doc_type": "capital_call",
+    "field": "notice_date",
+    "gold": "2024-06-01",
+    "ai_query_pred": "2024-06-01",
+    "ai_query_ok": true,
+    "ai_extract_pred": "June 1, 2024",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+    "doc_type": "capital_call",
+    "field": "due_date",
+    "gold": "2024-06-11",
+    "ai_query_pred": "2024-06-11",
+    "ai_query_ok": true,
+    "ai_extract_pred": "June 11, 2024",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+    "doc_type": "capital_call",
+    "field": "total_called",
+    "gold": 85000000,
+    "ai_query_pred": "8.5E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "85000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+    "doc_type": "capital_call",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
+    "doc_type": "capital_call",
+    "field": "commitment_base",
+    "gold": 1250000000,
+    "ai_query_pred": "1.25E9",
+    "ai_query_ok": true,
+    "ai_extract_pred": "1250000000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
+    "doc_type": "distribution",
+    "field": "fund_name",
+    "gold": "Pacific Credit Opportunities Fund II, LP",
+    "ai_query_pred": "Pacific Credit Opportunities Fund II, LP",
+    "ai_query_ok": true,
+    "ai_extract_pred": "PACIFIC CREDIT OPPORTUNITIES FUND II, LP",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
+    "doc_type": "distribution",
+    "field": "distribution_date",
+    "gold": "2032-06-30",
+    "ai_query_pred": "2032-06-30",
+    "ai_query_ok": true,
+    "ai_extract_pred": "June 30, 2032",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
+    "doc_type": "distribution",
+    "field": "total_proceeds",
+    "gold": 189400000,
+    "ai_query_pred": "1.894E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "189400000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
+    "doc_type": "distribution",
+    "field": "currency",
+    "gold": "USD",
+    "ai_query_pred": "USD",
+    "ai_query_ok": true,
+    "ai_extract_pred": "USD",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
+    "doc_type": "distribution",
+    "field": "return_of_capital",
+    "gold": 148200000,
+    "ai_query_pred": "1.482E8",
+    "ai_query_ok": true,
+    "ai_extract_pred": "148200000",
+    "ai_extract_ok": true
+  },
+  {
+    "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
+    "doc_type": "distribution",
+    "field": "preferred_return",
+    "gold": 38600000,
+    "ai_query_pred": "3.86E7",
+    "ai_query_ok": true,
+    "ai_extract_pred": "38600000",
+    "ai_extract_ok": true
+  }
+]

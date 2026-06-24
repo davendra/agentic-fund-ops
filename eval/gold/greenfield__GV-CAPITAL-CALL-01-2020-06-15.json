@@ -1,0 +1,15 @@
+{
+  "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Greenfield Ventures Fund I, L.P.",
+    "call_number": "1",
+    "notice_date": "2020-06-15",
+    "due_date": null,
+    "total_called": 10000000,
+    "currency": "USD",
+    "management_fee": null,
+    "commitment_base": 100000000
+  },
+  "note": "call=10% of commitments; schedule sums to $10M called on $100M commitments. No explicit mgmt-fee amount; due date not an explicit date."
+}

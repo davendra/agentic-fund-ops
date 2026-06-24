@@ -1,0 +1,20 @@
+# Databricks Asset Bundle - deploys the fund-ops pipeline as a scheduled Job.
+# Auth comes from your Databricks CLI profile (e.g. `-p DEFAULT`); no host is
+# hard-coded here so the bundle is portable across workspaces.
+bundle:
+  name: agentic-fund-ops
+
+variables:
+  warehouse_id:
+    description: Serverless SQL warehouse id the pipeline tasks run on
+    default: e35b4a902313dacd
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    mode: development
+    default: true
+  prod:
+    mode: production

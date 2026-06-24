@@ -1,0 +1,14 @@
+{
+  "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Apex Capital Fund IV, L.P.",
+    "call_number": "2",
+    "notice_date": "2020-07-15",
+    "due_date": "2020-07-31",
+    "total_called": 175000000,
+    "currency": "USD",
+    "management_fee": 775000,
+    "commitment_base": 575000000
+  }
+}

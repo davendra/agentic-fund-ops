@@ -1,0 +1,15 @@
+{
+  "file": "cornerstone-re-v__CORNERSTONE-DISTRIBUTIONS-2023.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "Cornerstone Real Estate Partners Fund V, LP",
+    "distribution_number": null,
+    "distribution_date": null,
+    "total_proceeds": null,
+    "currency": "USD",
+    "return_of_capital": null,
+    "preferred_return": null,
+    "gp_catchup": null
+  },
+  "note": "compiled rental-income notice; no single stated total and competing dates -> only fund_name+currency scored."
+}

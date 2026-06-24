@@ -1,0 +1,15 @@
+{
+  "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "Apex Capital Partners Fund III, LP",
+    "distribution_number": "1",
+    "distribution_date": "2026-10-31",
+    "total_proceeds": 80000000,
+    "currency": "USD",
+    "return_of_capital": 80000000,
+    "preferred_return": 0,
+    "gp_catchup": null
+  },
+  "note": "Pref return explicitly SKIPPED (=0) per LPA; residual $0; no GP catch-up tier present."
+}

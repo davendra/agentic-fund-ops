@@ -1,0 +1,51 @@
+resources:
+  jobs:
+    fund_ops_pipeline:
+      name: "[${bundle.target}] Agentic Fund-Ops Pipeline"
+      description: >-
+        Parse fund PDFs (ai_parse_document) -> extract structured fields
+        (ai_query, structured output) -> classify routing (ai_classify) ->
+        deterministic validation. Governed Delta tables in Unity Catalog.
+
+      tasks:
+        - task_key: parse
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: sql/01_parse.sql
+
+        - task_key: extract_capital_calls
+          depends_on:
+            - task_key: parse
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: sql/02_extract_capital_calls.sql
+
+        - task_key: extract_distributions
+          depends_on:
+            - task_key: parse
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: sql/02_extract_distributions.sql
+
+        - task_key: classify
+          depends_on:
+            - task_key: parse
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: sql/02_classify.sql
+
+        - task_key: validate
+          depends_on:
+            - task_key: extract_capital_calls
+            - task_key: extract_distributions
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: sql/03_validate.sql
+
+      queue:
+        enabled: true

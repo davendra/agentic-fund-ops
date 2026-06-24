@@ -1,0 +1,15 @@
+{
+  "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "Pacific Credit Opportunities Fund II, LP",
+    "distribution_number": null,
+    "distribution_date": "2032-06-30",
+    "total_proceeds": 189400000,
+    "currency": "USD",
+    "return_of_capital": 148200000,
+    "preferred_return": 38600000,
+    "gp_catchup": null
+  },
+  "note": "stated TOTAL DISTRIBUTION $189.4M (per-LP table sums to 210.2M - intentional inconsistency). Catch-up 'included in carry', not separate."
+}

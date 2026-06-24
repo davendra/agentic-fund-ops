@@ -1,0 +1,15 @@
+{
+  "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Cornerstone Real Estate Partners Fund V, LP",
+    "call_number": "1",
+    "notice_date": "2023-06-15",
+    "due_date": "2023-06-29",
+    "total_called": 270000000,
+    "currency": "USD",
+    "management_fee": 6750000,
+    "commitment_base": 1800000000
+  },
+  "note": "commitment_base from '1.5% x $1.8B' fee line / '15% of total commitments'"
+}

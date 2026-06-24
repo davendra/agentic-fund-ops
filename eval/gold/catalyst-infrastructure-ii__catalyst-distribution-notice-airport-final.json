@@ -1,0 +1,15 @@
+{
+  "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "Catalyst Infrastructure Partners Fund II, LLP",
+    "distribution_number": null,
+    "distribution_date": "2026-02-28",
+    "total_proceeds": 180000000,
+    "currency": "GBP",
+    "return_of_capital": 82000000,
+    "preferred_return": 51240000,
+    "gp_catchup": 9040000
+  },
+  "note": "GBP final distribution, unnumbered. Clawback true-up reduces net to 180M."
+}

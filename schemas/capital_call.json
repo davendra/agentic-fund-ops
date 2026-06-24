@@ -1,0 +1,52 @@
+{
+  "doc_type": "capital_call",
+  "instructions": "This is a private-equity / private-credit capital call notice. Extract the fund-level fields. Return monetary amounts as plain numbers (no currency symbols, no thousands separators). Dates as written. currency is the 3-letter ISO code (default USD if a $ amount with no other currency).",
+  "fields": {
+    "fund_name": { "type": "string" },
+    "call_number": { "type": "string" },
+    "notice_date": { "type": "string" },
+    "due_date": { "type": "string" },
+    "total_called": { "type": "number" },
+    "currency": { "type": "string" },
+    "investment_amount": { "type": "number" },
+    "management_fee": { "type": "number" },
+    "fund_expenses": { "type": "number" },
+    "commitment_base": { "type": "number" },
+    "mgmt_fee_rate": { "type": "number" },
+    "num_limited_partners": { "type": "integer" }
+  },
+  "descriptions": {
+    "fund_name": "full legal fund name",
+    "call_number": "the capital call / drawdown number",
+    "notice_date": "date the notice is dated, as ISO YYYY-MM-DD",
+    "due_date": "payment due date, as ISO YYYY-MM-DD",
+    "total_called": "total capital called in THIS notice (a single number)",
+    "currency": "3-letter ISO currency code",
+    "investment_amount": "portion of the call for investments/acquisitions",
+    "management_fee": "the management fee AMOUNT in this call (not the rate)",
+    "fund_expenses": "fund expenses portion of the call",
+    "commitment_base": "AGGREGATE total fund commitments used as the management-fee base - one total number, never a per-LP list",
+    "mgmt_fee_rate": "annual management fee rate as a percent number, e.g. 2.0",
+    "num_limited_partners": "count of LPs in the call schedule"
+  },
+  "gold_fields": [
+    "fund_name",
+    "call_number",
+    "notice_date",
+    "due_date",
+    "total_called",
+    "currency",
+    "management_fee",
+    "commitment_base"
+  ],
+  "numeric_fields": [
+    "total_called",
+    "investment_amount",
+    "management_fee",
+    "fund_expenses",
+    "commitment_base",
+    "mgmt_fee_rate",
+    "num_limited_partners"
+  ],
+  "date_fields": ["notice_date", "due_date"]
+}

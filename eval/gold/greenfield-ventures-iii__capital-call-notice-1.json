@@ -1,0 +1,15 @@
+{
+  "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Greenfield Ventures Fund III, LP",
+    "call_number": "1",
+    "notice_date": "2026-03-11",
+    "due_date": "2026-03-25",
+    "total_called": 72500000,
+    "currency": "USD",
+    "management_fee": 1812500,
+    "commitment_base": 290000000
+  },
+  "note": "commitment_base = first-close committed capital $290M (the fee base)"
+}

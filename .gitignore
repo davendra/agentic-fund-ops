@@ -1,0 +1,16 @@
+# Python / venv
+.venv/
+__pycache__/
+*.pyc
+
+# Databricks
+.databricks/
+
+# MLflow local store
+mlruns/
+
+# Live run artifacts (workspace host, source-text dumps, manifests).
+# Sanitized, committable copies of the key outputs live in samples/.
+reports/
+
+.DS_Store

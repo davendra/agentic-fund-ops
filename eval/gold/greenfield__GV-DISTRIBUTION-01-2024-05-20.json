@@ -1,0 +1,15 @@
+{
+  "file": "greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "Greenfield Ventures Fund I, L.P.",
+    "distribution_number": "1",
+    "distribution_date": "2024-05-20",
+    "total_proceeds": 4000000,
+    "currency": "USD",
+    "return_of_capital": null,
+    "preferred_return": null,
+    "gp_catchup": null
+  },
+  "note": "LP $3.2M (ROC+profit combined) + GP carry $0.8M = $4M; tiers not separately stated."
+}

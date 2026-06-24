@@ -1,0 +1,15 @@
+{
+  "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Catalyst Infrastructure Partners Fund II, LLP",
+    "call_number": "1",
+    "notice_date": "2019-03-15",
+    "due_date": "2019-03-29",
+    "total_called": 110000000,
+    "currency": "GBP",
+    "management_fee": 7812500,
+    "commitment_base": 825000000
+  },
+  "note": "GBP-denominated"
+}

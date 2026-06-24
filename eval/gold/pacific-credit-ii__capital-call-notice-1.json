@@ -1,0 +1,15 @@
+{
+  "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Pacific Credit Opportunities Fund II, LP",
+    "call_number": "1",
+    "notice_date": "2024-06-01",
+    "due_date": null,
+    "total_called": 195000000,
+    "currency": "USD",
+    "management_fee": 1850000,
+    "commitment_base": null
+  },
+  "note": "total_called = NEW LP capital called $195M (recycled $15M not 'called'; total deployment $210M). Commitment base not stated in notice."
+}

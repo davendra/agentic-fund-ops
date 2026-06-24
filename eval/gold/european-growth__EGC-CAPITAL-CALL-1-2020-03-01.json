@@ -1,0 +1,15 @@
+{
+  "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "European Growth Capital SCSp",
+    "call_number": "1",
+    "notice_date": "2020-03-01",
+    "due_date": "2020-03-13",
+    "total_called": 75000000,
+    "currency": "EUR",
+    "management_fee": 3281250,
+    "commitment_base": 750000000
+  },
+  "note": "EUR-denominated"
+}

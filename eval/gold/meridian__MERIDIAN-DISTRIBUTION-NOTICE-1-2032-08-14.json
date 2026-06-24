@@ -1,0 +1,15 @@
+{
+  "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "Meridian Secondaries Fund I, L.P.",
+    "distribution_number": "1",
+    "distribution_date": "2032-08-14",
+    "total_proceeds": 116261000,
+    "currency": "USD",
+    "return_of_capital": null,
+    "preferred_return": null,
+    "gp_catchup": null
+  },
+  "note": "secondaries CV realization; per-LP amounts only, no waterfall tiers."
+}

@@ -1,0 +1,132 @@
+{
+  "summary": [
+    {
+      "doc_type": "capital_call",
+      "severity": "error",
+      "pass": 34,
+      "fail": 0,
+      "na": 0
+    },
+    {
+      "doc_type": "capital_call",
+      "severity": "info",
+      "pass": 25,
+      "fail": 1,
+      "na": 8
+    },
+    {
+      "doc_type": "capital_call",
+      "severity": "warning",
+      "pass": 79,
+      "fail": 8,
+      "na": 15
+    },
+    {
+      "doc_type": "distribution",
+      "severity": "error",
+      "pass": 64,
+      "fail": 0,
+      "na": 0
+    },
+    {
+      "doc_type": "distribution",
+      "severity": "warning",
+      "pass": 27,
+      "fail": 4,
+      "na": 33
+    }
+  ],
+  "flagged_anomalies": [
+    {
+      "file": "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
+      "doc_type": "capital_call",
+      "check": "fee_rate_plausible",
+      "severity": "info",
+      "detail": "rate=8.9%"
+    },
+    {
+      "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.85E8 vs total=2.0E8"
+    },
+    {
+      "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=1.74348E8 vs total=1.8E8"
+    },
+    {
+      "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.028125E8 vs total=1.1E8"
+    },
+    {
+      "file": "cornerstone-re-v__CORNERSTONE-FINAL-DISTRIBUTIONS-2030.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=1.74575E9 vs total=1.8835E9"
+    },
+    {
+      "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=9.925E7 vs total=2.7E8"
+    },
+    {
+      "file": "cornerstone-re-v__capital-call-2-domestic-cornerstone-re-v.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=8.1E7 vs total=1.8E8"
+    },
+    {
+      "file": "cornerstone-re-v__distribution-1-cornerstone-re-v.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=4.1E7 vs total=4.5E7"
+    },
+    {
+      "file": "european-growth__EGC-FINAL-DISTRIBUTION-2029-10-01.pdf",
+      "doc_type": "distribution",
+      "check": "waterfall_reconciles",
+      "severity": "warning",
+      "detail": "tiers=5.17825E8 vs total=2.85E8"
+    },
+    {
+      "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=6.85E7 vs total=7.25E7"
+    },
+    {
+      "file": "pacific-credit-ii__capital-call-notice-1.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.7435E8 vs total=1.95E8"
+    },
+    {
+      "file": "pacific-credit-ii__capital-call-notice-2.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.099815E8 vs total=1.3E8"
+    },
+    {
+      "file": "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
+      "doc_type": "capital_call",
+      "check": "line_items_reconcile",
+      "severity": "warning",
+      "detail": "components=1.1275E8 vs total=1.115E8"
+    }
+  ]
+}

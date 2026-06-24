@@ -1,0 +1,52 @@
+{
+  "gold_docs": 19,
+  "scored_field_instances": 122,
+  "accuracy_pct": {
+    "ai_query": 96.7,
+    "ai_extract": 81.1
+  },
+  "by_doctype_pct": {
+    "ai_query": {
+      "capital_call": 97.0,
+      "distribution": 96.4
+    },
+    "ai_extract": {
+      "capital_call": 71.2,
+      "distribution": 92.9
+    }
+  },
+  "by_field_pct": {
+    "ai_query": {
+      "fund_name": 100.0,
+      "call_number": 100.0,
+      "notice_date": 100.0,
+      "total_called": 100.0,
+      "currency": 100.0,
+      "management_fee": 100.0,
+      "commitment_base": 75.0,
+      "distribution_number": 100.0,
+      "distribution_date": 100.0,
+      "total_proceeds": 88.9,
+      "return_of_capital": 100.0,
+      "preferred_return": 80.0,
+      "due_date": 100.0,
+      "gp_catchup": 100.0
+    },
+    "ai_extract": {
+      "fund_name": 84.2,
+      "call_number": 77.8,
+      "notice_date": 77.8,
+      "total_called": 66.7,
+      "currency": 78.9,
+      "management_fee": 71.4,
+      "commitment_base": 62.5,
+      "distribution_number": 100.0,
+      "distribution_date": 100.0,
+      "total_proceeds": 88.9,
+      "return_of_capital": 100.0,
+      "preferred_return": 80.0,
+      "due_date": 66.7,
+      "gp_catchup": 100.0
+    }
+  }
+}

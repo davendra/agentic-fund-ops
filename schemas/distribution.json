@@ -1,0 +1,52 @@
+{
+  "doc_type": "distribution",
+  "instructions": "This is a private-equity / private-credit distribution notice. Extract the fund-level fields and the four waterfall tiers. Return monetary amounts as plain numbers (no currency symbols, no thousands separators). Dates as written. currency is the 3-letter ISO code (default USD). distribution_type is one of: return_of_capital, income, realized_gain, tax, final, gp_carry.",
+  "fields": {
+    "fund_name": { "type": "string" },
+    "distribution_number": { "type": "string" },
+    "distribution_date": { "type": "string" },
+    "distribution_type": { "type": "string" },
+    "total_proceeds": { "type": "number" },
+    "currency": { "type": "string" },
+    "return_of_capital": { "type": "number" },
+    "preferred_return": { "type": "number" },
+    "gp_catchup": { "type": "number" },
+    "residual_split": { "type": "number" },
+    "gp_carry_total": { "type": "number" },
+    "num_limited_partners": { "type": "integer" }
+  },
+  "descriptions": {
+    "fund_name": "full legal fund name",
+    "distribution_number": "the distribution notice number (use 1 for a single/final distribution if unnumbered)",
+    "distribution_date": "distribution date, as ISO YYYY-MM-DD",
+    "distribution_type": "one of return_of_capital, income, realized_gain, tax, final, gp_carry",
+    "total_proceeds": "total distributable proceeds in this notice (a single number)",
+    "currency": "3-letter ISO currency code",
+    "return_of_capital": "Tier 1 return-of-capital AMOUNT (a money value)",
+    "preferred_return": "Tier 2 preferred / hurdle return AMOUNT in money - NOT a rate, percentage or MOIC multiple",
+    "gp_catchup": "Tier 3 GP catch-up AMOUNT in money",
+    "residual_split": "Tier 4 residual / carry split AMOUNT in money",
+    "gp_carry_total": "total carried interest AMOUNT paid to the GP",
+    "num_limited_partners": "count of LPs in the distribution schedule"
+  },
+  "gold_fields": [
+    "fund_name",
+    "distribution_number",
+    "distribution_date",
+    "total_proceeds",
+    "currency",
+    "return_of_capital",
+    "preferred_return",
+    "gp_catchup"
+  ],
+  "numeric_fields": [
+    "total_proceeds",
+    "return_of_capital",
+    "preferred_return",
+    "gp_catchup",
+    "residual_split",
+    "gp_carry_total",
+    "num_limited_partners"
+  ],
+  "date_fields": ["distribution_date"]
+}

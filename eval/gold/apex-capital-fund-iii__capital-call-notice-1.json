@@ -1,0 +1,15 @@
+{
+  "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
+  "doc_type": "capital_call",
+  "labels": {
+    "fund_name": "Apex Capital Partners Fund III, LP",
+    "call_number": "1",
+    "notice_date": "2026-01-15",
+    "due_date": null,
+    "total_called": 200000000,
+    "currency": "USD",
+    "management_fee": 10000000,
+    "commitment_base": 575000000
+  },
+  "note": "due_date stated only as '10 business days from notice date' (no explicit date). Purpose line (b) labels $10M as the mgmt-fee installment of this call."
+}

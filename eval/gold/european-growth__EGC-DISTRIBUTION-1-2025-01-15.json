@@ -1,0 +1,15 @@
+{
+  "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "European Growth Capital SCSp",
+    "distribution_number": "1",
+    "distribution_date": "2025-01-15",
+    "total_proceeds": 120000000,
+    "currency": "EUR",
+    "return_of_capital": 78000000,
+    "preferred_return": 42000000,
+    "gp_catchup": 0
+  },
+  "note": "EUR European-waterfall; GP catch-up explicitly EUR 0."
+}

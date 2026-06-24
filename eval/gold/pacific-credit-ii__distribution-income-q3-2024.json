@@ -1,0 +1,15 @@
+{
+  "file": "pacific-credit-ii__distribution-income-q3-2024.pdf",
+  "doc_type": "distribution",
+  "labels": {
+    "fund_name": "Pacific Credit Opportunities Fund II, LP",
+    "distribution_number": null,
+    "distribution_date": "2024-10-25",
+    "total_proceeds": 14481406,
+    "currency": "USD",
+    "return_of_capital": null,
+    "preferred_return": null,
+    "gp_catchup": null
+  },
+  "note": "Q3 income distribution; total to LPs $14,481,406; no ROC/pref/catchup tiers."
+}

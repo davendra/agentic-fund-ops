@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "config": {
+    "sample_questions": [
+      {
+        "id": "10000000000000000000000000000001",
+        "question": [
+          "What is the total capital called across all funds?"
+        ]
+      },
+      {
+        "id": "10000000000000000000000000000002",
+        "question": [
+          "Which distributions failed waterfall reconciliation?"
+        ]
+      }
+    ]
+  },
+  "data_sources": {
+    "tables": [
+      {
+        "identifier": "fund_ops.silver.capital_calls"
+      },
+      {
+        "identifier": "fund_ops.silver.distributions"
+      },
+      {
+        "identifier": "fund_ops.silver.validation_results"
+      }
+    ]
+  },
+  "instructions": {
+    "text_instructions": [
+      {
+        "id": "20000000000000000000000000000001",
+        "content": [
+          "capital_calls and distributions hold AI-extracted fund document data. ",
+          "validation_results holds deterministic check outcomes; passed=false means a flagged anomaly. ",
+          "Amounts are in each row's currency column."
+        ]
+      }
+    ]
+  }
+}
