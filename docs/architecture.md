@@ -6,9 +6,11 @@ All diagrams use [Mermaid](https://mermaid.js.org/) and render directly on GitHu
 
 ## 1. End-to-end pipeline
 
+91 documents across three types — 34 capital-call notices, 32 distribution notices, 25 LP capital-account statements — flow from a Unity Catalog Volume through native AI extraction, deterministic validation, and serving. The validation layer flags 33 anomalies: 8 capital-call line-item-reconciliation warnings, 1 capital-call fee-rate info flag, 4 distribution waterfall warnings, and 20 capital-account roll-forward warnings. Hard error-severity checks all pass (capital_call total_called_positive 34/34; distribution amounts 64/64; capital_account closing_balance_positive 23/23, with 2 statements that omit a closing balance marked n/a). The roll-forward warnings are a genuine data-quality finding: 20 of the 25 capital-account statements state a closing balance ~1.6–2.9% above the sum of their own disclosed line items. Field extraction was verified to match the source documents exactly, so this is a property of the source statements, not an extraction error — exactly the kind of discrepancy the deterministic layer must surface before an investor sees it.
+
 ```mermaid
 flowchart TD
-    PDF["66 fund PDFs<br/>capital calls + distributions<br/>7 funds · USD/EUR/GBP"]
+    PDF["91 fund PDFs<br/>capital calls + distributions + capital accounts<br/>7 funds · USD/EUR/GBP"]
 
     subgraph ingest["Ingest"]
         VOL[("Unity Catalog Volume<br/>/Volumes/fund_ops/raw/landing")]
@@ -19,13 +21,13 @@ flowchart TD
         PARSED[("silver.parsed_docs")]
         EXTRACT["EXTRACT · ai_query<br/>Llama-3.3-70B, structured JSON"]
         BASELINE["ai_extract<br/>baseline"]
-        CLASSIFY["CLASSIFY · ai_classify<br/>routing check 66/66"]
+        CLASSIFY["CLASSIFY · ai_classify<br/>routing check 90/91"]
     end
 
     subgraph trust["Govern and gate"]
-        SILVER[("silver.capital_calls<br/>silver.distributions")]
+        SILVER[("silver.capital_calls<br/>silver.distributions<br/>silver.capital_accounts")]
         VALIDATE["VALIDATE<br/>deterministic SQL reconciliation"]
-        VR[("silver.validation_results<br/>13 anomalies flagged")]
+        VR[("silver.validation_results<br/>33 anomalies flagged")]
     end
 
     subgraph serve["Serve, visualise, measure"]
@@ -92,21 +94,24 @@ flowchart LR
     parse["parse<br/>01_parse.sql"]
     ecc["extract_capital_calls<br/>02_extract_capital_calls.sql"]
     edi["extract_distributions<br/>02_extract_distributions.sql"]
+    eca["extract_capital_accounts<br/>02_extract_capital_accounts.sql"]
     cls["classify<br/>02_classify.sql"]
     val["validate<br/>03_validate.sql"]
 
     parse --> ecc
     parse --> edi
+    parse --> eca
     parse --> cls
     ecc --> val
     edi --> val
+    eca --> val
 ```
 
 ---
 
 ## 4. The evaluation harness — measure before you trust
 
-Two native extraction strategies are scored against the same hand-verified gold set; only fields whose ground-truth was labelled are scored.
+Two native extraction strategies are scored against the same hand-verified gold set; only fields whose ground-truth was labelled are scored. The gold set covers the 19 capital-call and distribution documents — capital accounts are extracted and validated but not yet labelled, so no accuracy number is claimed for them; the harness is ready to score them once gold labels exist.
 
 ```mermaid
 flowchart TD
@@ -150,10 +155,11 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    V[("raw.landing<br/>(Volume: 66 PDFs)")]
+    V[("raw.landing<br/>(Volume: 91 PDFs)")]
     PD[("silver.parsed_docs")]
     CC[("silver.capital_calls")]
     DI[("silver.distributions")]
+    CA[("silver.capital_accounts")]
     DC[("silver.doc_classification")]
     VR[("silver.validation_results")]
     CCB[("silver.capital_calls_baseline")]
@@ -162,9 +168,11 @@ flowchart LR
     V -->|ai_parse_document| PD
     PD -->|ai_query| CC
     PD -->|ai_query| DI
+    PD -->|ai_query| CA
     PD -->|ai_extract| CCB
     PD -->|ai_extract| DIB
     PD -->|ai_classify| DC
     CC -->|validate| VR
     DI -->|validate| VR
+    CA -->|validate| VR
 ```

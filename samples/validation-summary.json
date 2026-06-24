@@ -1,6 +1,20 @@
 {
   "summary": [
     {
+      "doc_type": "capital_account",
+      "severity": "error",
+      "pass": 23,
+      "fail": 0,
+      "na": 2
+    },
+    {
+      "doc_type": "capital_account",
+      "severity": "warning",
+      "pass": 2,
+      "fail": 20,
+      "na": 3
+    },
+    {
       "doc_type": "capital_call",
       "severity": "error",
       "pass": 34,
@@ -10,9 +24,9 @@
     {
       "doc_type": "capital_call",
       "severity": "info",
-      "pass": 25,
+      "pass": 26,
       "fail": 1,
-      "na": 8
+      "na": 7
     },
     {
       "doc_type": "capital_call",
@@ -31,9 +45,9 @@
     {
       "doc_type": "distribution",
       "severity": "warning",
-      "pass": 27,
+      "pass": 28,
       "fail": 4,
-      "na": 33
+      "na": 32
     }
   ],
   "flagged_anomalies": [
@@ -45,11 +59,102 @@
       "detail": "rate=8.9%"
     },
     {
+      "file": "apex-capital-fund-iii__capital-account-statement-q1-2026.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=2.895E7 vs closing=2.9655E7"
+    },
+    {
       "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
       "doc_type": "capital_call",
       "check": "line_items_reconcile",
       "severity": "warning",
       "detail": "components=1.85E8 vs total=2.0E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q1-2020.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=5.2069826E7 vs closing=5.3622E7"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q1-2021.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.18296765E8 vs closing=1.20218504E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q1-2022.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.69443875E8 vs closing=1.72622136E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q2-2020.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=5.4955483E7 vs closing=5.754244E7"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q2-2021.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.23232369E8 vs closing=1.27001935E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q2-2022.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.77201849E8 vs closing=1.82523588E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q3-2020.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=8.8912856E7 vs closing=9.0243291E7"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q3-2021.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.29834535E8 vs closing=1.32717144E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q3-2022.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.88792391E8 vs closing=1.97917391E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q4-2020.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=9.2440059E7 vs closing=9.5544406E7"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q4-2021.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.36417293E8 vs closing=1.4144338E8"
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q4-2022.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=2.02571112E8 vs closing=2.06710243E8"
     },
     {
       "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
@@ -66,11 +171,32 @@
       "detail": "components=1.028125E8 vs total=1.1E8"
     },
     {
+      "file": "cornerstone-re-v__CORNERSTONE-CAPITAL-ACCOUNTS-2020-2022.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=3.80998E7 vs closing=4.02668E7"
+    },
+    {
       "file": "cornerstone-re-v__CORNERSTONE-FINAL-DISTRIBUTIONS-2030.pdf",
       "doc_type": "distribution",
       "check": "waterfall_reconciles",
       "severity": "warning",
       "detail": "tiers=1.74575E9 vs total=1.8835E9"
+    },
+    {
+      "file": "cornerstone-re-v__capital-account-uk-pension-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.4146363E7 vs closing=1.4679868E7"
+    },
+    {
+      "file": "cornerstone-re-v__capital-account-us-pension-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=4.6007608E7 vs closing=5.0653858E7"
     },
     {
       "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
@@ -94,6 +220,34 @@
       "detail": "tiers=4.1E7 vs total=4.5E7"
     },
     {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-GLMPF-Q3-2025.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=2.7657E7 vs closing=2.8069E7"
+    },
+    {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-MBI-Q1-2024.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.81925E7 vs closing=1.881625E7"
+    },
+    {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-NFF-Q1-2028.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=1.4435625E8 vs closing=1.4820375E8"
+    },
+    {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-RVG-Q4-2029.pdf",
+      "doc_type": "capital_account",
+      "check": "account_rolls_forward",
+      "severity": "warning",
+      "detail": "roll-forward=572812.0 vs closing=910312.0"
+    },
+    {
       "file": "european-growth__EGC-FINAL-DISTRIBUTION-2029-10-01.pdf",
       "doc_type": "distribution",
       "check": "waterfall_reconciles",
@@ -112,7 +266,7 @@
       "doc_type": "capital_call",
       "check": "line_items_reconcile",
       "severity": "warning",
-      "detail": "components=1.7435E8 vs total=1.95E8"
+      "detail": "components=2.095E8 vs total=1.95E8"
     },
     {
       "file": "pacific-credit-ii__capital-call-notice-2.pdf",

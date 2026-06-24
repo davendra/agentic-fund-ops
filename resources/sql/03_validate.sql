@@ -45,3 +45,13 @@ SELECT file_name, doc_type, 'carry_within_proceeds' AS check_name, 'warning' AS 
   CASE WHEN NOT (gp_carry_total IS NOT NULL AND total_proceeds IS NOT NULL) THEN NULL ELSE (gp_carry_total <= total_proceeds) END AS passed,
   CASE WHEN NOT (gp_carry_total IS NOT NULL AND total_proceeds IS NOT NULL) THEN 'n/a' ELSE concat('carry=', gp_carry_total, ' proceeds=', total_proceeds) END AS detail
 FROM `fund_ops`.`silver`.`distributions`
+UNION ALL
+SELECT file_name, doc_type, 'closing_balance_positive' AS check_name, 'error' AS severity,
+  CASE WHEN NOT (closing_balance IS NOT NULL) THEN NULL ELSE (closing_balance > 0) END AS passed,
+  CASE WHEN NOT (closing_balance IS NOT NULL) THEN 'n/a' ELSE concat('closing=', closing_balance) END AS detail
+FROM `fund_ops`.`silver`.`capital_accounts`
+UNION ALL
+SELECT file_name, doc_type, 'account_rolls_forward' AS check_name, 'warning' AS severity,
+  CASE WHEN NOT (opening_balance IS NOT NULL AND contributions IS NOT NULL AND closing_balance IS NOT NULL) THEN NULL ELSE (abs((opening_balance + contributions - coalesce(distributions,0) - coalesce(management_fee,0) + coalesce(unrealized_gain,0) + coalesce(preferred_return,0)) - closing_balance) <= 0.01*abs(closing_balance)) END AS passed,
+  CASE WHEN NOT (opening_balance IS NOT NULL AND contributions IS NOT NULL AND closing_balance IS NOT NULL) THEN 'n/a' ELSE concat('roll-forward=', round(opening_balance + contributions - coalesce(distributions,0) - coalesce(management_fee,0) + coalesce(unrealized_gain,0) + coalesce(preferred_return,0),0), ' vs closing=', closing_balance) END AS detail
+FROM `fund_ops`.`silver`.`capital_accounts`

@@ -5,11 +5,11 @@
     {
       "question": "What is the total capital called across all funds, by currency?",
       "generated_sql": "SELECT `currency`, SUM(`total_called`) AS total_capital_called\nFROM `fund_ops`.`silver`.`capital_calls`\nWHERE `currency` IS NOT NULL AND `total_called` IS NOT NULL\nGROUP BY `currency`",
-      "genie_text": "The total capital called across all funds is **$2,431,625,000 USD**, **\u20ac462,500,000 EUR**, and **\u00a3260,000,000 GBP**. This shows that USD is the most common currency for capital calls, with significantly higher amounts than EUR and GBP.",
+      "genie_text": "The total capital called across all funds is **$2,430,825,000 USD**, **\u20ac462,500,000 EUR**, and **\u00a3260,000,000 GBP**. These figures represent the sum of capital called for each currency in the dataset.",
       "answer_sample": [
         [
           "USD",
-          "2.431625E9"
+          "2.430825E9"
         ],
         [
           "EUR",
@@ -24,7 +24,7 @@
     {
       "question": "Which 5 distributions had the largest total proceeds? Show the fund and amount.",
       "generated_sql": "SELECT `fund_name`, `total_proceeds` FROM `fund_ops`.`silver`.`distributions` WHERE `total_proceeds` IS NOT NULL ORDER BY `total_proceeds` DESC LIMIT 5;",
-      "genie_text": "The 5 distributions with the largest total proceeds are as follows:\n- **CORNERSTONE REAL ESTATE PARTNERS FUND V, LP**: 1,883,500,000\n- **Catalyst Infrastructure Partners Fund II, LLP**: 1,840,000,000\n- **Meridian Secondaries Fund I, L.P.**: 1,653,000,000\n- **MERIDIAN SECONDARIES FUND I, L.P.**: 415,000,000\n- **EUROPEAN GROWTH CAPITAL SCSP**: 285,000,000\n\nCORNERSTONE REAL ESTATE PARTNERS FUND V, LP had the highest total proceeds among the distributions listed.",
+      "genie_text": "The 5 distributions with the largest total proceeds are shown below. The highest proceeds were from **CORNERSTONE REAL ESTATE PARTNERS FUND V, LP** with **1,883,500,000**, followed by **Catalyst Infrastructure Partners Fund II, LLP** with **1,840,000,000**.\n\nOther notable funds and their proceeds include:\n- **Meridian Secondaries Fund I, L.P.: 1,653,000,000**\n- **MERIDIAN SECONDARIES FUND I, L.P.: 415,000,000**\n- **EUROPEAN GROWTH CAPITAL SCSP: 285,000,000**",
       "answer_sample": [
         [
           "CORNERSTONE REAL ESTATE PARTNERS FUND V, LP",
@@ -50,13 +50,13 @@
     },
     {
       "question": "How many capital calls and distributions were processed per fund?",
-      "generated_sql": "WITH capital_calls_count AS (\n  SELECT `fund_name`, COUNT(*) AS capital_calls_processed\n  FROM `fund_ops`.`silver`.`capital_calls`\n  WHERE `fund_name` IS NOT NULL\n  GROUP BY `fund_name`\n),\ndistributions_count AS (\n  SELECT `fund_name`, COUNT(*) AS distributions_processed\n  FROM `fund_ops`.`silver`.`distributions`\n  WHERE `fund_name` IS NOT NULL\n  GROUP BY `fund_name`\n)\nSELECT \n  COALESCE(c.`fund_name`, d.`fund_name`) AS fund_name,\n  COALESCE(c.capital_calls_processed, 0) AS capital_calls_processed,\n  COALESCE(d.distributions_processed, 0) AS distributions_processed\nFROM capital_calls_count c\nFULL OUTER JOIN distributions_count d\n  ON c.`fund_name` = d.`fund_name`\nORDER BY fund_name;",
-      "genie_text": "A total of 15 funds had capital calls and distributions processed. The number of capital calls per fund ranged from 0 to 7, while distributions ranged from 0 to 6. Notable data points include:\n- **Apex Capital Fund IV, L.P.**: 6 capital calls, 4 distributions\n- **GREENFIELD VENTURES FUND I, L.P.**: 7 capital calls, 5 distributions\n- **EUROPEAN GROWTH CAPITAL SCSP**: 3 capital calls, 6 distributions\n- **CORNERSTONE REAL ESTATE PARTNERS FUND V, LP**: 0 capital calls, 3 distributions\n- **Pacific Credit Opportunities Fund II, LP**: 6 capital calls, 1 distribution\n\nSome funds processed only capital calls or only distributions, and there are variations in naming conventions for certain funds.",
+      "generated_sql": "SELECT COALESCE(cc.fund_name, dc.fund_name) AS fund_name,\n       COALESCE(cc.capital_call_count, 0) AS capital_call_count,\n       COALESCE(dc.distribution_count, 0) AS distribution_count\nFROM (\n    SELECT fund_name, COUNT(*) AS capital_call_count\n    FROM fund_ops.silver.capital_calls\n    WHERE fund_name IS NOT NULL\n    GROUP BY fund_name\n) cc\nFULL OUTER JOIN (\n    SELECT fund_name, COUNT(*) AS distribution_count\n    FROM fund_ops.silver.distributions\n    WHERE fund_name IS NOT NULL\n    GROUP BY fund_name\n) dc\nON cc.fund_name = dc.fund_name",
+      "genie_text": "There are 15 funds listed, each with counts of capital calls and distributions processed. Some notable values include:\n- **EUROPEAN GROWTH CAPITAL SCSP**: 3 capital calls, 6 distributions\n- **Apex Capital Fund IV, L.P.**: 6 capital calls, 4 distributions\n- **Pacific Credit Opportunities Fund II, LP**: 4 capital calls, 1 distribution\n- **MERIDIAN SECONDARIES FUND I, L.P.**: 0 capital calls, 4 distributions\n- **Cornerstone Real Estate Partners Fund V Offshore Feeder, Ltd.**: 1 capital call, 0 distributions\n\nThe highest number of capital calls for a single fund is 6, and the highest number of distributions is also 6.",
       "answer_sample": [
         [
-          "Apex Capital Fund IV, L.P.",
-          "6",
-          "4"
+          "EUROPEAN GROWTH CAPITAL SCSP",
+          "3",
+          "6"
         ],
         [
           "Apex Capital Partners Fund III, LP",
@@ -64,9 +64,19 @@
           "1"
         ],
         [
-          "CORNERSTONE REAL ESTATE PARTNERS FUND V, LP",
-          "0",
-          "3"
+          "Cornerstone Real Estate Partners Fund V, LP",
+          "2",
+          "1"
+        ],
+        [
+          "Pacific Credit Opportunities Fund II, LP",
+          "4",
+          "1"
+        ],
+        [
+          "Apex Capital Fund IV, L.P.",
+          "6",
+          "4"
         ],
         [
           "Catalyst Infrastructure Partners Fund II, LLP",
@@ -79,76 +89,66 @@
           "0"
         ],
         [
-          "Cornerstone Real Estate Partners Fund V, LP",
-          "2",
-          "1"
+          "Greenfield Ventures Fund III, LP",
+          "1",
+          "0"
         ],
         [
-          "EUROPEAN GROWTH CAPITAL SCSP",
+          "Greenfield Ventures Fund I, L.P.",
           "3",
-          "6"
-        ],
-        [
-          "European Growth Capital SCSp",
-          "2",
           "0"
         ],
         [
           "GREENFIELD VENTURES FUND I, L.P.",
-          "7",
+          "5",
           "5"
-        ],
-        [
-          "Greenfield Ventures Fund I, L.P.",
-          "1",
-          "0"
         ]
       ]
     },
     {
       "question": "Which documents failed a validation check? Show the file and check name.",
       "generated_sql": "SELECT `file_name`, `check_name` FROM `fund_ops`.`silver`.`validation_results` WHERE `passed` = false AND `file_name` IS NOT NULL AND `check_name` IS NOT NULL;",
-      "genie_text": "A total of **13 documents** failed a validation check. The failed checks include \"waterfall_reconciles\", \"line_items_reconcile\", and \"fee_rate_plausible\".\n\nSome examples of failed documents and their checks are:\n- **catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf**: waterfall_reconciles\n- **apex-capital-fund-iii__capital-call-notice-1.pdf**: line_items_reconcile\n- **pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf**: fee_rate_plausible\n- **cornerstone-re-v__distribution-1-cornerstone-re-v.pdf**: waterfall_reconciles\n- **greenfield-ventures-iii__capital-call-notice-1.pdf**: line_items_reconcile\n\nMost failed checks are related to \"line_items_reconcile\" and \"waterfall_reconciles\".",
+      "genie_text": "A total of **33 documents** failed a validation check. Examples include:\n- **apex-capital-fund-iii__capital-account-statement-q1-2026.pdf** failed the **account_rolls_forward** check\n- **catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf** failed the **waterfall_reconciles** check\n- **apex-capital-fund-iii__capital-call-notice-1.pdf** failed the **line_items_reconcile** check\n- **pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf** failed the **fee_rate_plausible** check\n- **cornerstone-re-v__CORNERSTONE-CAPITAL-ACCOUNTS-2020-2022.pdf** failed the **account_rolls_forward** check\n\nMost failed checks are for \"account_rolls_forward,\" but other checks like \"waterfall_reconciles,\" \"line_items_reconcile,\" and \"fee_rate_plausible\" also appear.",
       "answer_sample": [
         [
-          "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
-          "waterfall_reconciles"
+          "apex-capital-fund-iii__capital-account-statement-q1-2026.pdf",
+          "account_rolls_forward"
         ],
         [
-          "cornerstone-re-v__distribution-1-cornerstone-re-v.pdf",
-          "waterfall_reconciles"
+          "apex__APEX-CAPITAL-ACCOUNT-Q1-2020.pdf",
+          "account_rolls_forward"
         ],
         [
-          "cornerstone-re-v__CORNERSTONE-FINAL-DISTRIBUTIONS-2030.pdf",
-          "waterfall_reconciles"
+          "apex__APEX-CAPITAL-ACCOUNT-Q1-2021.pdf",
+          "account_rolls_forward"
         ],
         [
-          "european-growth__EGC-FINAL-DISTRIBUTION-2029-10-01.pdf",
-          "waterfall_reconciles"
+          "apex__APEX-CAPITAL-ACCOUNT-Q2-2020.pdf",
+          "account_rolls_forward"
         ],
         [
-          "apex-capital-fund-iii__capital-call-notice-1.pdf",
-          "line_items_reconcile"
+          "apex__APEX-CAPITAL-ACCOUNT-Q1-2022.pdf",
+          "account_rolls_forward"
         ],
         [
-          "cornerstone-re-v__capital-call-2-domestic-cornerstone-re-v.pdf",
-          "line_items_reconcile"
+          "apex__APEX-CAPITAL-ACCOUNT-Q2-2021.pdf",
+          "account_rolls_forward"
         ],
         [
-          "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
-          "line_items_reconcile"
+          "apex__APEX-CAPITAL-ACCOUNT-Q4-2022.pdf",
+          "account_rolls_forward"
         ],
         [
-          "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
-          "line_items_reconcile"
+          "apex__APEX-CAPITAL-ACCOUNT-Q4-2020.pdf",
+          "account_rolls_forward"
         ],
         [
-          "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
-          "line_items_reconcile"
+          "apex__APEX-CAPITAL-ACCOUNT-Q2-2022.pdf",
+          "account_rolls_forward"
         ],
         [
-          "greenfield-ventures-iii__capital-call-notice-1.pdf",
-          "line_items_reconcile"
+          "apex__APEX-CAPITAL-ACCOUNT-Q3-2020.pdf",
+          "account_rolls_forward"
         ]
       ]
     }

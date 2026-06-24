@@ -28,9 +28,11 @@ def null_rates(tbl: str, gold: list[str]) -> None:
 def main() -> int:
     ns = fo.load_namespace()
     cc, di = ps.load_schema("capital_call"), ps.load_schema("distribution")
+    ca = ps.load_schema("capital_account")
     print(f"extracting (primary model = {fo.EXTRACT_MODEL}):")
     for doc_type, schema, table in [("capital_call", cc, "capital_calls"),
-                                    ("distribution", di, "distributions")]:
+                                    ("distribution", di, "distributions"),
+                                    ("capital_account", ca, "capital_accounts")]:
         print(f"  [primary ai_query] {doc_type} -> {table} ...", flush=True)
         fo.run_sql(ps.extract_primary_sql(ns, doc_type, schema, table), timeout_s=900)
         null_rates(fo.fq(ns, "silver_schema", table), schema["gold_fields"])

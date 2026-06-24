@@ -30,6 +30,14 @@ resources:
             file:
               path: sql/02_extract_distributions.sql
 
+        - task_key: extract_capital_accounts
+          depends_on:
+            - task_key: parse
+          sql_task:
+            warehouse_id: ${var.warehouse_id}
+            file:
+              path: sql/02_extract_capital_accounts.sql
+
         - task_key: classify
           depends_on:
             - task_key: parse
@@ -42,6 +50,7 @@ resources:
           depends_on:
             - task_key: extract_capital_calls
             - task_key: extract_distributions
+            - task_key: extract_capital_accounts
           sql_task:
             warehouse_id: ${var.warehouse_id}
             file:

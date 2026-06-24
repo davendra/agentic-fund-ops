@@ -28,11 +28,13 @@ def main() -> int:
     k = rows(f"""SELECT
         (SELECT count(*) FROM {C}.capital_calls) calls,
         (SELECT count(*) FROM {C}.distributions) dists,
+        (SELECT count(*) FROM {C}.capital_accounts) accounts,
         (SELECT sum(CASE WHEN currency='USD' THEN total_called ELSE 0 END) FROM {C}.capital_calls) usd_called,
+        (SELECT sum(closing_balance) FROM {C}.capital_accounts) nav,
         (SELECT count(*) FROM {C}.validation_results WHERE passed=false) anomalies""")[0]
-    data["kpis"] = {"capital_calls": int(k[0]), "distributions": int(k[1]),
-                    "usd_called": float(k[2]), "anomalies": int(k[3]),
-                    "funds": 7, "currencies": 3, "gold_docs": 19}
+    data["kpis"] = {"capital_calls": int(k[0]), "distributions": int(k[1]), "capital_accounts": int(k[2]),
+                    "usd_called": float(k[3]), "nav": float(k[4]), "anomalies": int(k[5]),
+                    "funds": 7, "currencies": 3, "gold_docs": 19}  # 7 fund families (file prefixes are finer-grained)
 
     data["by_currency"] = [{"currency": r[0], "total_called": float(r[1])}
                            for r in rows(f"SELECT currency, sum(total_called) FROM {C}.capital_calls WHERE currency IS NOT NULL GROUP BY currency ORDER BY 2 DESC")]
@@ -40,7 +42,12 @@ def main() -> int:
     data["docs_by_fund"] = [{"fund": r[0], "doc_type": r[1], "n": int(r[2])} for r in rows(
         f"""SELECT split(file_name,'__')[0] fund, doc_type, count(*) n FROM (
               SELECT file_name, doc_type FROM {C}.capital_calls
-              UNION ALL SELECT file_name, doc_type FROM {C}.distributions) GROUP BY fund, doc_type ORDER BY fund""")]
+              UNION ALL SELECT file_name, doc_type FROM {C}.distributions
+              UNION ALL SELECT file_name, doc_type FROM {C}.capital_accounts) GROUP BY fund, doc_type ORDER BY fund""")]
+
+    data["nav_by_fund"] = [{"fund": r[0], "nav": float(r[1])} for r in rows(
+        f"""SELECT fund_name, sum(closing_balance) FROM {C}.capital_accounts
+            WHERE fund_name IS NOT NULL AND closing_balance IS NOT NULL GROUP BY fund_name ORDER BY 2 DESC""")]
 
     data["dist_by_type"] = [{"type": r[0], "n": int(r[1])} for r in rows(
         f"SELECT coalesce(distribution_type,'(unspecified)'), count(*) FROM {C}.distributions GROUP BY 1 ORDER BY 2 DESC")]

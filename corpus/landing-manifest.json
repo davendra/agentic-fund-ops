@@ -1,464 +1,553 @@
 {
-  "count": 66,
+  "count": 91,
+  "by_type": {
+    "capital_account": 25,
+    "capital_call": 34,
+    "distribution": 32
+  },
   "documents": [
     {
-      "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
-      "fund": "apex",
-      "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
-      "size_bytes": 5547
+      "file": "apex-capital-fund-iii__capital-account-statement-q1-2026.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex-capital-fund-iii__capital-account-statement-q1-2026.pdf",
+      "size_bytes": 9469
     },
     {
-      "file": "apex__APEX-CAPITAL-CALL-3-2021-03-01.pdf",
-      "fund": "apex",
-      "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-3-2021-03-01.pdf",
-      "size_bytes": 5505
-    },
-    {
-      "file": "apex__APEX-CAPITAL-CALL-4-2022-06-15.pdf",
-      "fund": "apex",
-      "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-4-2022-06-15.pdf",
-      "size_bytes": 5518
-    },
-    {
-      "file": "apex__APEX-CAPITAL-CALL-5-2023-04-01.pdf",
-      "fund": "apex",
-      "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-5-2023-04-01.pdf",
-      "size_bytes": 5191
-    },
-    {
-      "file": "apex__APEX-CAPITAL-CALL-6-2024-02-15.pdf",
-      "fund": "apex",
-      "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-6-2024-02-15.pdf",
-      "size_bytes": 5123
-    },
-    {
-      "file": "apex__APEX-CAPITAL-CALL-7-2024-09-01.pdf",
-      "fund": "apex",
-      "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-7-2024-09-01.pdf",
-      "size_bytes": 5111
-    },
-    {
-      "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
-      "fund": "apex",
-      "doc_type": "distribution",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
-      "size_bytes": 5373
-    },
-    {
-      "file": "apex__APEX-DISTRIBUTION-2-2024-06-30.pdf",
-      "fund": "apex",
-      "doc_type": "distribution",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-DISTRIBUTION-2-2024-06-30.pdf",
-      "size_bytes": 5402
-    },
-    {
-      "file": "apex__APEX-DISTRIBUTION-3-2024-12-15.pdf",
-      "fund": "apex",
-      "doc_type": "distribution",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-DISTRIBUTION-3-2024-12-15.pdf",
-      "size_bytes": 5445
-    },
-    {
-      "file": "apex__APEX-GP-CARRY-DISTRIBUTION-2030.pdf",
-      "fund": "apex",
-      "doc_type": "distribution",
-      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-GP-CARRY-DISTRIBUTION-2030.pdf",
-      "size_bytes": 4803
+      "file": "apex-capital-fund-iii__capital-account-statement-q2-2026.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex-capital-fund-iii__capital-account-statement-q2-2026.pdf",
+      "size_bytes": 9477
     },
     {
       "file": "apex-capital-fund-iii__capital-call-notice-1.pdf",
-      "fund": "apex-capital-fund-iii",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/apex-capital-fund-iii__capital-call-notice-1.pdf",
       "size_bytes": 7929
     },
     {
       "file": "apex-capital-fund-iii__capital-call-notice-2.pdf",
-      "fund": "apex-capital-fund-iii",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/apex-capital-fund-iii__capital-call-notice-2.pdf",
       "size_bytes": 9561
     },
     {
       "file": "apex-capital-fund-iii__distribution-notice-1.pdf",
-      "fund": "apex-capital-fund-iii",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/apex-capital-fund-iii__distribution-notice-1.pdf",
       "size_bytes": 8054
     },
     {
-      "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
-      "fund": "catalyst",
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q1-2020.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q1-2020.pdf",
+      "size_bytes": 3181
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q1-2021.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q1-2021.pdf",
+      "size_bytes": 3203
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q1-2022.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q1-2022.pdf",
+      "size_bytes": 3206
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q2-2020.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q2-2020.pdf",
+      "size_bytes": 3269
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q2-2021.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q2-2021.pdf",
+      "size_bytes": 3184
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q2-2022.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q2-2022.pdf",
+      "size_bytes": 3188
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q3-2020.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q3-2020.pdf",
+      "size_bytes": 3203
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q3-2021.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q3-2021.pdf",
+      "size_bytes": 3192
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q3-2022.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q3-2022.pdf",
+      "size_bytes": 3292
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q4-2020.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q4-2020.pdf",
+      "size_bytes": 3188
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q4-2021.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q4-2021.pdf",
+      "size_bytes": 3311
+    },
+    {
+      "file": "apex__APEX-CAPITAL-ACCOUNT-Q4-2022.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-ACCOUNT-Q4-2022.pdf",
+      "size_bytes": 3192
+    },
+    {
+      "file": "apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
       "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
-      "size_bytes": 6234
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-2-2020-07-15.pdf",
+      "size_bytes": 5547
     },
     {
-      "file": "catalyst__CATALYST-CAPITAL-CALL-2-2019-07-01.pdf",
-      "fund": "catalyst",
+      "file": "apex__APEX-CAPITAL-CALL-3-2021-03-01.pdf",
       "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-CAPITAL-CALL-2-2019-07-01.pdf",
-      "size_bytes": 5698
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-3-2021-03-01.pdf",
+      "size_bytes": 5505
     },
     {
-      "file": "catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
-      "fund": "catalyst",
-      "doc_type": "distribution",
-      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
-      "size_bytes": 6307
+      "file": "apex__APEX-CAPITAL-CALL-4-2022-06-15.pdf",
+      "doc_type": "capital_call",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-4-2022-06-15.pdf",
+      "size_bytes": 5518
     },
     {
-      "file": "catalyst__CATALYST-FINAL-DISTRIBUTION-2028-09-30.pdf",
-      "fund": "catalyst",
+      "file": "apex__APEX-CAPITAL-CALL-5-2023-04-01.pdf",
+      "doc_type": "capital_call",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-5-2023-04-01.pdf",
+      "size_bytes": 5191
+    },
+    {
+      "file": "apex__APEX-CAPITAL-CALL-6-2024-02-15.pdf",
+      "doc_type": "capital_call",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-6-2024-02-15.pdf",
+      "size_bytes": 5123
+    },
+    {
+      "file": "apex__APEX-CAPITAL-CALL-7-2024-09-01.pdf",
+      "doc_type": "capital_call",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-CAPITAL-CALL-7-2024-09-01.pdf",
+      "size_bytes": 5111
+    },
+    {
+      "file": "apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
       "doc_type": "distribution",
-      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-FINAL-DISTRIBUTION-2028-09-30.pdf",
-      "size_bytes": 6536
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-DISTRIBUTION-1-2023-12-15.pdf",
+      "size_bytes": 5373
+    },
+    {
+      "file": "apex__APEX-DISTRIBUTION-2-2024-06-30.pdf",
+      "doc_type": "distribution",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-DISTRIBUTION-2-2024-06-30.pdf",
+      "size_bytes": 5402
+    },
+    {
+      "file": "apex__APEX-DISTRIBUTION-3-2024-12-15.pdf",
+      "doc_type": "distribution",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-DISTRIBUTION-3-2024-12-15.pdf",
+      "size_bytes": 5445
+    },
+    {
+      "file": "apex__APEX-GP-CARRY-DISTRIBUTION-2030.pdf",
+      "doc_type": "distribution",
+      "volume_path": "/Volumes/fund_ops/raw/landing/apex__APEX-GP-CARRY-DISTRIBUTION-2030.pdf",
+      "size_bytes": 4803
+    },
+    {
+      "file": "catalyst-infrastructure-ii__catalyst-capital-account-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst-infrastructure-ii__catalyst-capital-account-q4-2025.pdf",
+      "size_bytes": 9348
     },
     {
       "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
-      "fund": "catalyst-infrastructure-ii",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/catalyst-infrastructure-ii__catalyst-distribution-notice-airport-final.pdf",
       "size_bytes": 9742
     },
     {
       "file": "catalyst-infrastructure-ii__catalyst-distribution-notice-q4-2025-yield.pdf",
-      "fund": "catalyst-infrastructure-ii",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/catalyst-infrastructure-ii__catalyst-distribution-notice-q4-2025-yield.pdf",
       "size_bytes": 9931
     },
     {
+      "file": "catalyst__CATALYST-CAPITAL-ACCOUNT-ONTARIO-Q2-2023.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-CAPITAL-ACCOUNT-ONTARIO-Q2-2023.pdf",
+      "size_bytes": 4812
+    },
+    {
+      "file": "catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+      "doc_type": "capital_call",
+      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-CAPITAL-CALL-1-2019-03-15.pdf",
+      "size_bytes": 6234
+    },
+    {
+      "file": "catalyst__CATALYST-CAPITAL-CALL-2-2019-07-01.pdf",
+      "doc_type": "capital_call",
+      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-CAPITAL-CALL-2-2019-07-01.pdf",
+      "size_bytes": 5698
+    },
+    {
+      "file": "catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
+      "doc_type": "distribution",
+      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-DISTRIBUTION-Q2-2023.pdf",
+      "size_bytes": 6307
+    },
+    {
+      "file": "catalyst__CATALYST-FINAL-DISTRIBUTION-2028-09-30.pdf",
+      "doc_type": "distribution",
+      "volume_path": "/Volumes/fund_ops/raw/landing/catalyst__CATALYST-FINAL-DISTRIBUTION-2028-09-30.pdf",
+      "size_bytes": 6536
+    },
+    {
+      "file": "cornerstone-re-v__CORNERSTONE-CAPITAL-ACCOUNTS-2020-2022.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__CORNERSTONE-CAPITAL-ACCOUNTS-2020-2022.pdf",
+      "size_bytes": 8449
+    },
+    {
       "file": "cornerstone-re-v__CORNERSTONE-DISTRIBUTIONS-2023.pdf",
-      "fund": "cornerstone-re-v",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__CORNERSTONE-DISTRIBUTIONS-2023.pdf",
       "size_bytes": 8480
     },
     {
       "file": "cornerstone-re-v__CORNERSTONE-FINAL-DISTRIBUTIONS-2030.pdf",
-      "fund": "cornerstone-re-v",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__CORNERSTONE-FINAL-DISTRIBUTIONS-2030.pdf",
       "size_bytes": 6211
     },
     {
+      "file": "cornerstone-re-v__capital-account-uk-pension-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__capital-account-uk-pension-q4-2025.pdf",
+      "size_bytes": 7029
+    },
+    {
+      "file": "cornerstone-re-v__capital-account-us-pension-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__capital-account-us-pension-q4-2025.pdf",
+      "size_bytes": 9224
+    },
+    {
       "file": "cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
-      "fund": "cornerstone-re-v",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__capital-call-1-domestic-cornerstone-re-v.pdf",
       "size_bytes": 9148
     },
     {
       "file": "cornerstone-re-v__capital-call-1-offshore-cornerstone-re-v.pdf",
-      "fund": "cornerstone-re-v",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__capital-call-1-offshore-cornerstone-re-v.pdf",
       "size_bytes": 7079
     },
     {
       "file": "cornerstone-re-v__capital-call-2-domestic-cornerstone-re-v.pdf",
-      "fund": "cornerstone-re-v",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__capital-call-2-domestic-cornerstone-re-v.pdf",
       "size_bytes": 9606
     },
     {
       "file": "cornerstone-re-v__distribution-1-cornerstone-re-v.pdf",
-      "fund": "cornerstone-re-v",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__distribution-1-cornerstone-re-v.pdf",
       "size_bytes": 8202
     },
     {
       "file": "cornerstone-re-v__distribution-2-cornerstone-re-v.pdf",
-      "fund": "cornerstone-re-v",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/cornerstone-re-v__distribution-2-cornerstone-re-v.pdf",
       "size_bytes": 8937
     },
     {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-GLMPF-Q3-2025.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-ACCOUNT-GLMPF-Q3-2025.pdf",
+      "size_bytes": 4702
+    },
+    {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-MBI-Q1-2024.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-ACCOUNT-MBI-Q1-2024.pdf",
+      "size_bytes": 6040
+    },
+    {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-NFF-Q1-2028.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-ACCOUNT-NFF-Q1-2028.pdf",
+      "size_bytes": 5812
+    },
+    {
+      "file": "european-growth__EGC-CAPITAL-ACCOUNT-RVG-Q4-2029.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-ACCOUNT-RVG-Q4-2029.pdf",
+      "size_bytes": 5022
+    },
+    {
       "file": "european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
-      "fund": "european-growth",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-CALL-1-2020-03-01.pdf",
       "size_bytes": 5654
     },
     {
       "file": "european-growth__EGC-CAPITAL-CALL-2-2020-07-01.pdf",
-      "fund": "european-growth",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-CALL-2-2020-07-01.pdf",
       "size_bytes": 5948
     },
     {
       "file": "european-growth__EGC-CAPITAL-CALL-3-2021-02-01.pdf",
-      "fund": "european-growth",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-CALL-3-2021-02-01.pdf",
       "size_bytes": 5841
     },
     {
       "file": "european-growth__EGC-CAPITAL-CALL-4-2022-04-01.pdf",
-      "fund": "european-growth",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-CALL-4-2022-04-01.pdf",
       "size_bytes": 6008
     },
     {
       "file": "european-growth__EGC-CAPITAL-CALL-5-2024-02-01.pdf",
-      "fund": "european-growth",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-CAPITAL-CALL-5-2024-02-01.pdf",
       "size_bytes": 5502
     },
     {
       "file": "european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
-      "fund": "european-growth",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-DISTRIBUTION-1-2025-01-15.pdf",
       "size_bytes": 5699
     },
     {
       "file": "european-growth__EGC-DISTRIBUTION-2-2026-09-01.pdf",
-      "fund": "european-growth",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-DISTRIBUTION-2-2026-09-01.pdf",
       "size_bytes": 4709
     },
     {
       "file": "european-growth__EGC-DISTRIBUTION-NOTICE-2-2027-03-01.pdf",
-      "fund": "european-growth",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-DISTRIBUTION-NOTICE-2-2027-03-01.pdf",
       "size_bytes": 5971
     },
     {
       "file": "european-growth__EGC-DISTRIBUTION-NOTICE-3-2028-06-01.pdf",
-      "fund": "european-growth",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-DISTRIBUTION-NOTICE-3-2028-06-01.pdf",
       "size_bytes": 5249
     },
     {
       "file": "european-growth__EGC-DISTRIBUTION-NOTICE-4-2028-12-01.pdf",
-      "fund": "european-growth",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-DISTRIBUTION-NOTICE-4-2028-12-01.pdf",
       "size_bytes": 5634
     },
     {
       "file": "european-growth__EGC-FINAL-DISTRIBUTION-2029-10-01.pdf",
-      "fund": "european-growth",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/european-growth__EGC-FINAL-DISTRIBUTION-2029-10-01.pdf",
       "size_bytes": 5917
     },
     {
+      "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
+      "doc_type": "capital_call",
+      "volume_path": "/Volumes/fund_ops/raw/landing/greenfield-ventures-iii__capital-call-notice-1.pdf",
+      "size_bytes": 8215
+    },
+    {
       "file": "greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-01-2020-06-15.pdf",
       "size_bytes": 4573
     },
     {
       "file": "greenfield__GV-CAPITAL-CALL-02-2020-12-01.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-02-2020-12-01.pdf",
       "size_bytes": 4711
     },
     {
       "file": "greenfield__GV-CAPITAL-CALL-03-2021-07-12.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-03-2021-07-12.pdf",
       "size_bytes": 4557
     },
     {
       "file": "greenfield__GV-CAPITAL-CALL-04-2022-03-08.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-04-2022-03-08.pdf",
       "size_bytes": 4741
     },
     {
       "file": "greenfield__GV-CAPITAL-CALL-05-2023-08-15.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-05-2023-08-15.pdf",
       "size_bytes": 4206
     },
     {
       "file": "greenfield__GV-CAPITAL-CALL-06-2024-02-20.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-06-2024-02-20.pdf",
       "size_bytes": 4197
     },
     {
       "file": "greenfield__GV-CAPITAL-CALL-07-2024-09-05.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-07-2024-09-05.pdf",
       "size_bytes": 4196
     },
     {
       "file": "greenfield__GV-CAPITAL-CALL-08-2025-03-12.pdf",
-      "fund": "greenfield",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-CAPITAL-CALL-08-2025-03-12.pdf",
       "size_bytes": 4359
     },
     {
       "file": "greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
-      "fund": "greenfield",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-DISTRIBUTION-01-2024-05-20.pdf",
       "size_bytes": 3973
     },
     {
       "file": "greenfield__GV-DISTRIBUTION-02-2024-11-15.pdf",
-      "fund": "greenfield",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-DISTRIBUTION-02-2024-11-15.pdf",
       "size_bytes": 3882
     },
     {
       "file": "greenfield__GV-DISTRIBUTION-03-2028-06-15.pdf",
-      "fund": "greenfield",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-DISTRIBUTION-03-2028-06-15.pdf",
       "size_bytes": 3552
     },
     {
       "file": "greenfield__GV-DISTRIBUTION-04-2028-12-28.pdf",
-      "fund": "greenfield",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-DISTRIBUTION-04-2028-12-28.pdf",
       "size_bytes": 3746
     },
     {
       "file": "greenfield__GV-DISTRIBUTION-05-2029-06-30.pdf",
-      "fund": "greenfield",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/greenfield__GV-DISTRIBUTION-05-2029-06-30.pdf",
       "size_bytes": 3495
     },
     {
-      "file": "greenfield-ventures-iii__capital-call-notice-1.pdf",
-      "fund": "greenfield-ventures-iii",
-      "doc_type": "capital_call",
-      "volume_path": "/Volumes/fund_ops/raw/landing/greenfield-ventures-iii__capital-call-notice-1.pdf",
-      "size_bytes": 8215
-    },
-    {
       "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
-      "fund": "meridian",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/meridian__MERIDIAN-DISTRIBUTION-NOTICE-1-2032-08-14.pdf",
       "size_bytes": 4208
     },
     {
       "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-2-2033-04-14.pdf",
-      "fund": "meridian",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/meridian__MERIDIAN-DISTRIBUTION-NOTICE-2-2033-04-14.pdf",
       "size_bytes": 3937
     },
     {
       "file": "meridian__MERIDIAN-DISTRIBUTION-NOTICE-3-2034-03-15.pdf",
-      "fund": "meridian",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/meridian__MERIDIAN-DISTRIBUTION-NOTICE-3-2034-03-15.pdf",
       "size_bytes": 3859
     },
     {
       "file": "meridian__MERIDIAN-FINAL-DISTRIBUTIONS-2035-06-30.pdf",
-      "fund": "meridian",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/meridian__MERIDIAN-FINAL-DISTRIBUTIONS-2035-06-30.pdf",
       "size_bytes": 5343
     },
     {
       "file": "meridian__MERIDIAN-GP-CARRY-DISTRIBUTION-2034-12-31.pdf",
-      "fund": "meridian",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/meridian__MERIDIAN-GP-CARRY-DISTRIBUTION-2034-12-31.pdf",
       "size_bytes": 4405
     },
     {
+      "file": "pacific-credit-ii__capital-account-statement-q4-2025.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit-ii__capital-account-statement-q4-2025.pdf",
+      "size_bytes": 11427
+    },
+    {
       "file": "pacific-credit-ii__capital-call-notice-1.pdf",
-      "fund": "pacific-credit-ii",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit-ii__capital-call-notice-1.pdf",
       "size_bytes": 8930
     },
     {
       "file": "pacific-credit-ii__capital-call-notice-2.pdf",
-      "fund": "pacific-credit-ii",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit-ii__capital-call-notice-2.pdf",
       "size_bytes": 8333
     },
     {
       "file": "pacific-credit-ii__distribution-income-q3-2024.pdf",
-      "fund": "pacific-credit-ii",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit-ii__distribution-income-q3-2024.pdf",
       "size_bytes": 8996
     },
     {
       "file": "pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
-      "fund": "pacific-credit",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-CAPITAL-CALL-1-2024-06-01.pdf",
       "size_bytes": 4797
     },
     {
       "file": "pacific-credit__PC-CAPITAL-CALL-2-2024-09-01.pdf",
-      "fund": "pacific-credit",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-CAPITAL-CALL-2-2024-09-01.pdf",
       "size_bytes": 4789
     },
     {
       "file": "pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
-      "fund": "pacific-credit",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-CAPITAL-CALL-3-2025-04-01.pdf",
       "size_bytes": 4720
     },
     {
       "file": "pacific-credit__PC-CAPITAL-CALL-4-2026-02-01.pdf",
-      "fund": "pacific-credit",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-CAPITAL-CALL-4-2026-02-01.pdf",
       "size_bytes": 4891
     },
     {
       "file": "pacific-credit__PC-CAPITAL-CALL-5-2027-03-01.pdf",
-      "fund": "pacific-credit",
       "doc_type": "capital_call",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-CAPITAL-CALL-5-2027-03-01.pdf",
       "size_bytes": 4754
     },
     {
+      "file": "pacific-credit__PC-FINAL-CAPITAL-ACCOUNT-2032-12-31.pdf",
+      "doc_type": "capital_account",
+      "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-FINAL-CAPITAL-ACCOUNT-2032-12-31.pdf",
+      "size_bytes": 4915
+    },
+    {
       "file": "pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
-      "fund": "pacific-credit",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-FINAL-DISTRIBUTION-2032-06-30.pdf",
       "size_bytes": 5575
     },
     {
       "file": "pacific-credit__PC-INCOME-DISTRIBUTION-Q2-2027-07-31.pdf",
-      "fund": "pacific-credit",
       "doc_type": "distribution",
       "volume_path": "/Volumes/fund_ops/raw/landing/pacific-credit__PC-INCOME-DISTRIBUTION-Q2-2027-07-31.pdf",
       "size_bytes": 4885

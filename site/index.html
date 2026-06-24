@@ -36,7 +36,7 @@
       <div class="hero-copy">
         <span class="eyebrow">Agentic data engineering · Databricks</span>
         <h1>Messy fund PDFs → governed, validated, queryable data.</h1>
-        <p>An AI agent parses capital-call and distribution notices, extracts structured fields with an LLM, <strong>gates the model with deterministic arithmetic</strong>, and lands governed Delta tables — then serves them through Genie, dashboards and an MLflow eval. Built end-to-end on Databricks.</p>
+        <p>An AI agent parses capital-call notices, distribution notices and LP capital-account statements, extracts structured fields with an LLM, <strong>gates the model with deterministic arithmetic</strong>, and lands governed Delta tables — then serves them through Genie, dashboards and an MLflow eval. Built end-to-end on Databricks.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="https://github.com/davendra/agentic-fund-ops" target="_blank" rel="noopener">View the code</a>
           <a class="btn btn-ghost" href="#dashboards">See the dashboards</a>
@@ -63,7 +63,7 @@
       <div class="steps">
         <div class="step"><span class="step-k">Parse</span><code>ai_parse_document</code><p>Every PDF → text in one warehouse query.</p></div>
         <div class="step"><span class="step-k">Extract</span><code>ai_query</code><p>Structured JSON into typed columns, schema-driven.</p></div>
-        <div class="step"><span class="step-k">Classify</span><code>ai_classify</code><p>Doc-type routing, cross-checked 66/66.</p></div>
+        <div class="step"><span class="step-k">Classify</span><code>ai_classify</code><p>Doc-type routing, cross-checked 90/91.</p></div>
         <div class="step"><span class="step-k">Validate</span><code>deterministic SQL</code><p>Arithmetic reconciliation; catches what the model misses.</p></div>
         <div class="step"><span class="step-k">Serve</span><code>Genie · AI/BI · MLflow</code><p>Query, visualise, and measure the output.</p></div>
       </div>
@@ -73,12 +73,13 @@
     <section class="section alt" id="data">
       <div class="section-head">
         <h2>The data <span id="data-source" class="src">●</span></h2>
-        <p>Pulled from the governed <code>fund_ops.silver</code> tables — queried <strong>live from Databricks</strong> on this deployment, or a baked snapshot on the static mirror. Every capital-call and distribution notice the pipeline processed.</p>
+        <p>Pulled from the governed <code>fund_ops.silver</code> tables — queried <strong>live from Databricks</strong> on this deployment, or a baked snapshot on the static mirror. Every capital-call notice, distribution notice and LP capital-account statement the pipeline processed.</p>
       </div>
       <div class="chart-grid">
         <div class="card"><h3>Capital called by currency</h3><canvas id="chart-currency"></canvas></div>
         <div class="card"><h3>Documents processed by fund</h3><canvas id="chart-funds"></canvas></div>
         <div class="card"><h3>Distributions by type</h3><canvas id="chart-disttype"></canvas></div>
+        <div class="card"><h3>LP net asset value by fund</h3><canvas id="chart-nav"></canvas></div>
         <div class="card wide"><h3>Capital calls trend</h3><canvas id="chart-trend"></canvas></div>
       </div>
     </section>
@@ -92,8 +93,8 @@
       <div class="accuracy-row">
         <div class="card"><canvas id="chart-eval"></canvas></div>
         <div class="card validation">
-          <h3>Deterministic validation flagged <span class="hl" id="anom-count">13</span> anomalies</h3>
-          <p class="muted">Hard checks all pass; the warnings are the value — reconciliation breaks and outliers surfaced for human review.</p>
+          <h3>Deterministic validation flagged <span class="hl" id="anom-count">33</span> anomalies</h3>
+          <p class="muted">Hard checks all pass; the warnings are the value — line-item, waterfall and capital-account roll-forward breaks surfaced for human review. (20 LP capital-account statements don't foot: stated closing balance ≠ opening + period activity.)</p>
           <div class="table-wrap"><table id="anom-table"><thead><tr><th>Document</th><th>Check</th><th>Severity</th></tr></thead><tbody></tbody></table></div>
         </div>
       </div>

@@ -1,0 +1,43 @@
+{
+  "doc_type": "capital_account",
+  "instructions": "This is a private-fund Limited Partner capital account statement. Extract the LP-level fields. Return monetary amounts as plain positive numbers (no symbols, no commas, no parentheses) - report the MAGNITUDE even for deductions shown in parentheses like ($652,000). Dates as ISO YYYY-MM-DD. currency is the 3-letter ISO code (default USD).",
+  "fields": {
+    "fund_name": { "type": "string" },
+    "lp_name": { "type": "string" },
+    "period_end": { "type": "string" },
+    "currency": { "type": "string" },
+    "capital_commitment": { "type": "number" },
+    "opening_balance": { "type": "number" },
+    "contributions": { "type": "number" },
+    "distributions": { "type": "number" },
+    "management_fee": { "type": "number" },
+    "unrealized_gain": { "type": "number" },
+    "preferred_return": { "type": "number" },
+    "closing_balance": { "type": "number" },
+    "remaining_unfunded": { "type": "number" }
+  },
+  "descriptions": {
+    "fund_name": "full legal fund name",
+    "lp_name": "the Limited Partner / investor this statement is for",
+    "period_end": "the period-end / 'as of' date, as ISO YYYY-MM-DD",
+    "currency": "3-letter ISO currency code",
+    "capital_commitment": "the LP's total capital commitment",
+    "opening_balance": "opening / beginning capital account balance for the period",
+    "contributions": "capital contributions during the period (positive magnitude)",
+    "distributions": "distributions during the period (positive magnitude, 0 if none)",
+    "management_fee": "management fee charged during the period (positive magnitude)",
+    "unrealized_gain": "unrealized gain or loss allocated during the period (negative if a loss)",
+    "preferred_return": "preferred return accrued during the period (positive magnitude)",
+    "closing_balance": "closing / ending capital account balance for the period",
+    "remaining_unfunded": "remaining unfunded commitment"
+  },
+  "gold_fields": [
+    "fund_name", "lp_name", "period_end", "currency",
+    "opening_balance", "contributions", "closing_balance"
+  ],
+  "numeric_fields": [
+    "capital_commitment", "opening_balance", "contributions", "distributions",
+    "management_fee", "unrealized_gain", "preferred_return", "closing_balance", "remaining_unfunded"
+  ],
+  "date_fields": ["period_end"]
+}

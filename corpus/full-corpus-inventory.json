@@ -1,24 +1,11 @@
 {
-  "corpus_root": "<local FundAdmin AI sample corpus>",
+  "corpus_root": "/Users/davendrapatel/Documents/GitHub/fundadmin-apps/fundadmin-ai/samples/output",
   "total_files": 1145,
-  "by_type": {
-    "other": 664,
-    "lpa": 103,
-    "wire_instructions": 66,
-    "ppm": 63,
-    "side_letter": 43,
+  "by_type_filename_heuristic": {
+    "other": 1052,
     "capital_call": 35,
-    "subscription": 34,
     "distribution": 33,
-    "fatca_crs": 32,
-    "capital_account": 25,
-    "kyc": 16,
-    "aml": 9,
-    "esg": 8,
-    "cashflow": 5,
-    "fee_audit": 4,
-    "reconciliation": 3,
-    "waterfall": 2
+    "capital_account": 25
   },
-  "note": "Filename-heuristic counts across ALL 1,145 corpus files, including non-PDF (.md/.json) files (e.g. email-capital-call.md), so capital_call/distribution here exceed the PDFs the pipeline lands. The pipeline processes the 66 capital-call + distribution PDFs only (34 + 32; see corpus/landing-manifest.json); other types are inventoried for context. Synthetic samples from the author's FundAdmin AI product."
+  "note": "Synthetic samples from the author's FundAdmin AI product. The pipeline processes the capital_call + distribution PDFs; other types are inventoried only."
 }

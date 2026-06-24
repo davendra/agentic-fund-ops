@@ -13,11 +13,14 @@ const money = (v) => {
 function kpis(d) {
   const k = d.kpis;
   const acc = d.eval.accuracy_pct.ai_query;
+  const ca = k.capital_accounts || 0;
   const cards = [
-    { v: k.capital_calls + k.distributions, l: "documents" },
+    { v: k.capital_calls + k.distributions + ca, l: "documents" },
     { v: k.capital_calls, l: "capital calls" },
     { v: k.distributions, l: "distributions" },
+    { v: ca, l: "capital accounts" },
     { v: money(k.usd_called), l: "USD called" },
+    { v: k.nav ? money(k.nav) : "—", l: "LP NAV tracked" },
     { v: k.anomalies, l: "anomalies flagged" },
     { v: acc + "%", l: "extraction accuracy" },
   ];
@@ -57,11 +60,26 @@ function charts(d) {
     type: "bar",
     data: { labels: funds, datasets: [
       { label: "capital_call", data: pick("capital_call"), backgroundColor: C.teal, borderRadius: 4 },
-      { label: "distribution", data: pick("distribution"), backgroundColor: C.coral, borderRadius: 4 } ] },
+      { label: "distribution", data: pick("distribution"), backgroundColor: C.coral, borderRadius: 4 },
+      { label: "capital_account", data: pick("capital_account"), backgroundColor: C.gold, borderRadius: 4 } ] },
     options: baseOpts({ plugins: { legend: { display: true, position: "top", labels: { boxWidth: 12, font: { size: 11 } } }, tooltip: { backgroundColor: C.navy } },
       scales: { x: { stacked: true, grid: { display: false }, ticks: { color: C.slate, font: { size: 9 }, maxRotation: 60, minRotation: 60 } },
                 y: { stacked: true, grid: { color: C.line }, beginAtZero: true, ticks: { color: C.slate } } } }),
   });
+
+  // LP net asset value by fund (capital accounts) — only if data present
+  const navEl = document.getElementById("chart-nav");
+  if (navEl && d.nav_by_fund && d.nav_by_fund.length) {
+    new Chart(navEl, {
+      type: "bar",
+      data: { labels: d.nav_by_fund.map((r) => r.fund.replace(/[-_]/g, " ")),
+        datasets: [{ data: d.nav_by_fund.map((r) => r.nav), backgroundColor: C.gold, borderRadius: 6, maxBarThickness: 48 }] },
+      options: baseOpts({ indexAxis: "y",
+        plugins: { legend: { display: false }, tooltip: { backgroundColor: C.navy, callbacks: { label: (c) => money(c.parsed.x) } } },
+        scales: { x: { grid: { color: C.line }, beginAtZero: true, ticks: { color: C.slate, callback: (v) => money(v) } },
+                  y: { grid: { display: false }, ticks: { color: C.slate, font: { size: 10 } } } } }),
+    });
+  }
 
   // distributions by type (doughnut)
   const palette = [C.teal, C.coral, C.gold, C.navy, C.slate, "#8aa0b3"];

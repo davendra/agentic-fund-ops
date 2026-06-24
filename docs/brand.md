@@ -67,7 +67,7 @@ The wordmark is **Agentic Fund-Ops**, set in **Space Grotesk** (Medium or Semibo
 
 ## Voice & tone
 
-- **Precise.** Cite the real numbers and name the real tools — 66 PDFs, `ai_query` extraction at 96.7%, Unity Catalog Delta tables. No vague superlatives.
+- **Precise.** Cite the real numbers and name the real tools — 91 PDFs, `ai_query` extraction at 96.7%, Unity Catalog Delta tables. No vague superlatives.
 - **Confident, not boastful.** State what the pipeline does and what it measured; let the evidence carry the weight.
 - **Honest.** The corpus is 100% synthetic and this is a hands-on demonstration on Databricks Free Edition, not a production deployment. Never imply production use or years of Databricks tenure — Databricks is the author's newest tool.
 - **Technical but clear.** Write for an engineer and a fund-ops reader at once: explain the mechanism, then say plainly why it matters.
@@ -82,8 +82,8 @@ The wordmark is **Agentic Fund-Ops**, set in **Space Grotesk** (Medium or Semibo
 | `assets/hero.jpg` | Hero banner image for the README and landing/title surfaces. |
 | `assets/infographic-pipeline.jpg` | Pipeline diagram: `ai_parse_document` → `ai_query` → `ai_classify` → SQL validation → Unity Catalog → Genie + AI/BI + MLflow. |
 | `assets/infographic-eval.jpg` | Extraction-accuracy comparison: `ai_query` 96.7% vs `ai_extract` baseline 81.1% over 19 gold documents. |
-| `assets/infographic-validation.jpg` | Deterministic validation results, including the 13 anomalies flagged. |
-| `assets/infographic-stats.jpg` | Corpus stats: 66 fund PDFs (34 capital calls + 32 distribution notices), 7 fund families, 3 currencies. |
+| `assets/infographic-validation.jpg` | Deterministic validation results, including the 33 anomalies flagged. |
+| `assets/infographic-stats.jpg` | Corpus stats: 91 fund PDFs (34 capital-call notices + 32 distribution notices + 25 LP capital-account statements), 7 fund families, 3 currencies. |
 
 ---
 

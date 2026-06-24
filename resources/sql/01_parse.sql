@@ -8,7 +8,9 @@ WITH raw AS (
 SELECT
   file_name,
   CASE WHEN lower(file_name) rlike 'capital[-_ ]?call' THEN 'capital_call'
-       ELSE 'distribution' END AS doc_type,
+       WHEN lower(file_name) rlike 'capital[-_ ]?account' THEN 'capital_account'
+       WHEN lower(file_name) like '%distribution%' THEN 'distribution'
+       ELSE 'other' END AS doc_type,
   concat_ws('\n', transform(cast(parsed:document:elements AS ARRAY<VARIANT>),
                              e -> e:content::string)) AS text,
   try_cast(parsed:error_status AS string) AS parse_error

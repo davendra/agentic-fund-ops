@@ -23,9 +23,9 @@
 
 </div>
 
-> Capital-call and distribution notices arrive as unstructured PDFs in a dozen different layouts. This pipeline parses them, extracts structured fields with an LLM, **gates the model's output with deterministic arithmetic**, lands governed Delta tables, exposes a natural-language query layer and a dashboard, and **measures its own extraction accuracy against a hand-verified gold set** — all packaged as a one-command deployable Databricks Job.
+> Capital-call notices, distribution notices and LP capital-account statements arrive as unstructured PDFs in a dozen different layouts. This pipeline parses them, extracts structured fields with an LLM, **gates the model's output with deterministic arithmetic**, lands governed Delta tables, exposes a natural-language query layer and a dashboard, and **measures its own extraction accuracy against a hand-verified gold set** — all packaged as a one-command deployable Databricks Job.
 
-![Agentic Fund-Ops by the numbers: 66 documents, 7 fund families, 3 currencies, 13 anomalies flagged](assets/infographic-stats.jpg)
+![Agentic Fund-Ops by the numbers: 91 documents, 3 document types, 7 fund families, 33 anomalies flagged](assets/infographic-stats.jpg)
 
 Built as a hands-on demonstration of **agentic data engineering** on Databricks. The agent (Claude Code + Databricks' official agent-skills) authored, ran, and validated this pipeline against a live Unity Catalog workspace. All data is **synthetic** (see [The data](#the-data)).
 
@@ -50,15 +50,15 @@ Built as a hands-on demonstration of **agentic data engineering** on Databricks.
 
 ```mermaid
 flowchart TD
-    PDF["66 fund PDFs<br/>capital calls + distributions · 7 funds · USD/EUR/GBP"]
+    PDF["91 fund PDFs<br/>capital calls + distributions + capital accounts · 7 funds · USD/EUR/GBP"]
     VOL[("Unity Catalog Volume<br/>raw/landing")]
     PARSE["ai_parse_document<br/>PDF to text"]
     EXTRACT["ai_query to Llama-3.3-70B<br/>structured extraction"]
     BASE["ai_extract<br/>baseline"]
-    CLS["ai_classify<br/>routing 66/66"]
-    SILVER[("silver.capital_calls<br/>silver.distributions")]
+    CLS["ai_classify<br/>routing 90/91"]
+    SILVER[("silver.capital_calls<br/>silver.distributions<br/>silver.capital_accounts")]
     VALIDATE["deterministic SQL validation<br/>arithmetic reconciliation gates"]
-    VR[("validation_results<br/>13 anomalies flagged")]
+    VR[("validation_results<br/>33 anomalies flagged")]
     GENIE["Genie Space<br/>natural-language to SQL"]
     DASH["AI/BI Dashboard<br/>KPIs · charts · anomalies"]
     EVAL["MLflow eval<br/>ai_query 96.7% vs ai_extract 81.1%"]
@@ -117,15 +117,20 @@ The eval harness **catches that** — so you ship the strategy you measured, not
 
 The remaining `ai_query` misses are genuine and honest — e.g. a notice whose waterfall literally reads *"Preferred Return (8%): SKIPPED"* (gold `0`) that the model returned as null, and a commitment base where the model returned a **$690M sub-total instead of the $1.8B aggregate**. (See [`samples/eval-detail.json`](samples/eval-detail.json).)
 
+> The accuracy benchmark above covers the two gold-labelled document types (capital calls + distributions). The newest type — **LP capital-account statements** — is extracted and deterministically validated end-to-end, but is not yet in the gold set, so it carries no accuracy figure here; the eval harness is ready to score it once those labels are added.
+
 ### Deterministic validation — the trust gate
 
-![AI extracts, code gates: AI-extracted fields pass through deterministic validation, splitting into PASS and FLAGGED with 13 anomalies](assets/infographic-validation.jpg)
+![AI extracts, code gates: AI-extracted fields pass through deterministic validation, splitting into PASS and FLAGGED with 33 anomalies](assets/infographic-validation.jpg)
 
-Every hard (error-severity) check passes — **34/34** on capital calls and **64/64** on distributions (these are *check instances*: the positive-amount / non-negative rules run across the 34 capital-call and 32 distribution records). The **warning- and info-level checks are where the value is** — the pipeline surfaced **13 anomalies** for human review:
+Every hard (error-severity) check passes — **34/34** on capital calls, **64/64** on distributions, and **23/23** on capital accounts (these are *check instances*: the positive-amount / non-negative / closing-balance rules run across the 34 capital-call, 32 distribution and 25 capital-account records; 2 capital-account statements omit a closing balance and are marked *n/a* rather than failed). The **warning- and info-level checks are where the value is** — the pipeline surfaced **33 anomalies** for human review:
 
+- 20 capital-account **roll-forward** breaks (stated closing balance ≠ opening + contributions − distributions − fees + gains + preferred return)
 - 8 capital-call **line-item reconciliation** breaks (components ≠ stated total)
 - 4 distribution **waterfall** mismatches (tiers ≠ total proceeds)
 - 1 **implausible 8.9% management-fee rate** (model confused a loan coupon for the fee)
+
+The capital-account roll-forward break is a real, verified finding, not an extraction error — field extraction was confirmed to match the source statements exactly, yet **20 of 25 synthetic LP statements simply don't foot** (stated closing exceeds disclosed activity by ~1.6–2.9%). That is precisely the kind of data-quality break a fund administrator must catch before it reaches an investor — and the deterministic layer catches every one.
 
 This is the *"extract with a model, gate with deterministic code"* pattern — the model handles judgment, arithmetic handles trust.
 
@@ -135,11 +140,11 @@ Real exchanges captured from the Conversation API ([`samples/genie-demo.json`](s
 
 > **"What is the total capital called across all funds, by currency?"**
 > → `SELECT currency, SUM(total_called) … GROUP BY currency`
-> → **$2,431,625,000 USD · €462,500,000 EUR · £260,000,000 GBP**
+> → **$2,430,825,000 USD · €462,500,000 EUR · £260,000,000 GBP**
 
 > **"Which documents failed a validation check?"**
 > → `SELECT file_name, check_name … WHERE passed = false`
-> → **13 documents** — `waterfall_reconciles`, `line_items_reconcile`, `fee_rate_plausible`
+> → **33 documents** — `account_rolls_forward`, `line_items_reconcile`, `waterfall_reconciles`, `fee_rate_plausible`
 
 ---
 
@@ -161,7 +166,7 @@ A deep analytical dashboard scaffolded with Databricks AI/BI + **Genie** (natura
 
 ### 2. Agentic Fund-Ops Overview
 
-The pipeline's own operational dashboard — defined in [`dashboards/fund_ops.lvdash.json`](dashboards/fund_ops.lvdash.json) and deployable with [`setup/05_create_dashboard.sh`](setup/05_create_dashboard.sh). It surfaces KPI tiles (capital calls, distributions, USD capital called, anomalies flagged), a distributions-by-type breakdown, and a live **validation-anomalies review table** — the same numbers the validation and eval stages produce. The two panels shown below are **capital called by currency** and **documents processed by fund** (split by document type).
+The pipeline's own operational dashboard — defined in [`dashboards/fund_ops.lvdash.json`](dashboards/fund_ops.lvdash.json) and deployable with [`setup/05_create_dashboard.sh`](setup/05_create_dashboard.sh). It surfaces KPI tiles (capital calls, distributions, capital accounts, USD capital called, LP NAV tracked, anomalies flagged), a distributions-by-type breakdown, an **LP-NAV-by-fund** chart, and a live **validation-anomalies review table** — the same numbers the validation and eval stages produce. The two panels shown below are **capital called by currency** and **documents processed by fund** (split by document type).
 
 ![Agentic Fund-Ops Overview — capital called by currency, and documents processed by fund split by document type](assets/dashboards/fundops-overview-charts.png)
 
@@ -169,9 +174,9 @@ The pipeline's own operational dashboard — defined in [`dashboards/fund_ops.lv
 
 ## The data
 
-100% **synthetic**. The inputs are capital-call and distribution-notice PDFs drawn from the author's own FundAdmin AI product sample corpus (1,145 synthetic files across fictional funds — *Apex*, *Greenfield*, *Catalyst*, *Pacific Credit*, *Cornerstone RE*, *Meridian*, *European Growth*). **Every** capital-call + distribution PDF in the corpus (66 documents, 7 fund families, USD/EUR/GBP) is processed — not a cherry-picked sample. No client or confidential data is used anywhere.
+100% **synthetic**. The inputs are capital-call notices, distribution notices and LP capital-account statements drawn from the author's own FundAdmin AI product sample corpus (1,145 synthetic files across fictional funds — *Apex*, *Greenfield*, *Catalyst*, *Pacific Credit*, *Cornerstone RE*, *Meridian*, *European Growth*). **Every** capital-call, distribution and capital-account PDF in the corpus (91 documents = 34 + 32 + 25, 7 fund families, USD/EUR/GBP) is processed — not a cherry-picked sample. No client or confidential data is used anywhere.
 
-The documents are deliberately heterogeneous: different layouts per fund, European vs American waterfalls, income vs return-of-capital distributions, recycled capital, multi-currency, and several **intentional inconsistencies** (a misclassified fee, a per-LP table that doesn't foot to the stated total) — which the validation layer is built to catch.
+The documents are deliberately heterogeneous: different layouts per fund, European vs American waterfalls, income vs return-of-capital distributions, recycled capital, multi-currency, and several **intentional inconsistencies** (a misclassified fee, a per-LP table that doesn't foot to the stated total, and LP capital-account statements whose stated closing balance doesn't reconcile to the disclosed period activity) — which the validation layer is built to catch.
 
 ---
 
@@ -195,7 +200,7 @@ databricks bundle deploy -t dev -p DEFAULT     # creates the serverless Job
 databricks bundle run  fund_ops_pipeline -t dev -p DEFAULT
 ```
 
-The pipeline auto-detects what your workspace supports (Stage 0 probe) and resolves a Unity Catalog namespace; a fresh clone runs against the committed 66-PDF dataset without needing the source corpus.
+The pipeline auto-detects what your workspace supports (Stage 0 probe) and resolves a Unity Catalog namespace; a fresh clone runs against the committed 91-PDF dataset without needing the source corpus.
 
 ---
 
@@ -224,7 +229,7 @@ genie/genie_space.json     Genie Space definition
 dashboards/                AI/BI (Lakeview) dashboard definition (.lvdash.json)
 databricks.yml             Asset Bundle
 resources/                 Job definition + auto-generated SQL tasks
-corpus/landing/            the committed 66-PDF dataset
+corpus/landing/            the committed 91-PDF dataset
 samples/                   captured run artifacts (accuracy, Genie transcript)
 docs/                      architecture diagrams, brand, writeup, blurbs
 ```

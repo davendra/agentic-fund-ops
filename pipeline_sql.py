@@ -11,7 +11,8 @@ from pathlib import Path
 import fundops_lib as fo
 
 REPO = Path(__file__).resolve().parent
-LABELS = {"capital_call": "capital call notice", "distribution": "distribution notice"}
+LABELS = {"capital_call": "capital call notice", "distribution": "distribution notice",
+          "capital_account": "capital account statement"}
 
 
 def load_schema(name: str) -> dict:
@@ -30,7 +31,9 @@ WITH raw AS (
 SELECT
   file_name,
   CASE WHEN lower(file_name) rlike 'capital[-_ ]?call' THEN 'capital_call'
-       ELSE 'distribution' END AS doc_type,
+       WHEN lower(file_name) rlike 'capital[-_ ]?account' THEN 'capital_account'
+       WHEN lower(file_name) like '%distribution%' THEN 'distribution'
+       ELSE 'other' END AS doc_type,
   concat_ws('\\n', transform(cast(parsed:document:elements AS ARRAY<VARIANT>),
                              e -> e:content::string)) AS text,
   try_cast(parsed:error_status AS string) AS parse_error
@@ -133,6 +136,14 @@ DISTRIBUTION_CHECKS = [
      "gp_carry_total IS NOT NULL AND total_proceeds IS NOT NULL", "gp_carry_total <= total_proceeds",
      "concat('carry=', gp_carry_total, ' proceeds=', total_proceeds)"),
 ]
+CAPITAL_ACCOUNT_CHECKS = [
+    ("closing_balance_positive", "error", "closing_balance IS NOT NULL", "closing_balance > 0",
+     "concat('closing=', closing_balance)"),
+    ("account_rolls_forward", "warning",
+     "opening_balance IS NOT NULL AND contributions IS NOT NULL AND closing_balance IS NOT NULL",
+     "abs((opening_balance + contributions - coalesce(distributions,0) - coalesce(management_fee,0) + coalesce(unrealized_gain,0) + coalesce(preferred_return,0)) - closing_balance) <= 0.01*abs(closing_balance)",
+     "concat('roll-forward=', round(opening_balance + contributions - coalesce(distributions,0) - coalesce(management_fee,0) + coalesce(unrealized_gain,0) + coalesce(preferred_return,0),0), ' vs closing=', closing_balance)"),
+]
 
 
 def _check_select(table: str, name: str, sev: str, applicable: str, cond: str, detail: str) -> str:
@@ -145,7 +156,9 @@ FROM {table}"""
 def validate_sql(ns: dict) -> str:
     cc = fo.fq(ns, "silver_schema", "capital_calls")
     di = fo.fq(ns, "silver_schema", "distributions")
+    ca = fo.fq(ns, "silver_schema", "capital_accounts")
     out = fo.fq(ns, "silver_schema", "validation_results")
     selects = [_check_select(cc, *c) for c in CAPITAL_CALL_CHECKS]
     selects += [_check_select(di, *c) for c in DISTRIBUTION_CHECKS]
+    selects += [_check_select(ca, *c) for c in CAPITAL_ACCOUNT_CHECKS]
     return f"CREATE OR REPLACE TABLE {out} AS\n" + "\nUNION ALL\n".join(selects)

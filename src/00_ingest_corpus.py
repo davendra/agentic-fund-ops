@@ -29,6 +29,8 @@ def doc_type_of(name: str) -> str | None:
     low = name.lower()
     if re.search(r"capital[-_ ]?call", low):
         return "capital_call"
+    if re.search(r"capital[-_ ]?account", low):
+        return "capital_account"
     if "distribution" in low:
         return "distribution"
     return None

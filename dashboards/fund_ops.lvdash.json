@@ -21,6 +21,19 @@
       ]
     },
     {
+      "name": "ds_accounts",
+      "displayName": "Capital accounts",
+      "queryLines": [
+        "SELECT file_name, fund_name, closing_balance, currency FROM capital_accounts"
+      ],
+      "columns": [
+        {
+          "displayName": "LP NAV",
+          "expression": "SUM(`closing_balance`)"
+        }
+      ]
+    },
+    {
       "name": "ds_validation",
       "displayName": "Validation results",
       "queryLines": [
@@ -39,7 +52,9 @@
       "queryLines": [
         "SELECT split(file_name,'__')[0] AS fund, doc_type FROM capital_calls\n",
         "UNION ALL\n",
-        "SELECT split(file_name,'__')[0] AS fund, doc_type FROM distributions"
+        "SELECT split(file_name,'__')[0] AS fund, doc_type FROM distributions\n",
+        "UNION ALL\n",
+        "SELECT split(file_name,'__')[0] AS fund, doc_type FROM capital_accounts"
       ]
     },
     {
@@ -62,9 +77,9 @@
             "multilineTextboxSpec": {
               "lines": [
                 "# Agentic Fund-Ops \u2014 Document Automation Overview\n\n",
-                "AI-extracted, deterministically-validated data from **66 fund-administration PDFs** ",
-                "(capital calls + distribution notices, 7 funds, 3 currencies). ",
-                "The model extracts; arithmetic **validation gates** it \u2014 the anomalies table (bottom-right) ",
+                "AI-extracted, deterministically-validated data from **91 fund-administration PDFs** ",
+                "(capital calls + distribution notices + LP capital-account statements, 7 funds, 3 currencies). ",
+                "The model extracts; arithmetic **validation gates** it \u2014 the anomalies table (bottom) ",
                 "is what a fund administrator would review. All data is synthetic."
               ]
             }
@@ -112,7 +127,7 @@
           "position": {
             "x": 0,
             "y": 3,
-            "width": 3,
+            "width": 2,
             "height": 3
           }
         },
@@ -150,9 +165,49 @@
             }
           },
           "position": {
-            "x": 3,
+            "x": 2,
             "y": 3,
-            "width": 3,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_accounts",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_accounts",
+                  "fields": [
+                    {
+                      "name": "accounts",
+                      "expression": "COUNT(`file_name`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "accounts",
+                  "displayName": "Capital accounts"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Capital accounts"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 3,
+            "width": 2,
             "height": 3
           }
         },
@@ -201,7 +256,56 @@
           "position": {
             "x": 6,
             "y": 3,
-            "width": 3,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "kpi_nav",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_accounts",
+                  "fields": [
+                    {
+                      "name": "measure(LP NAV)",
+                      "expression": "MEASURE(`LP NAV`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(LP NAV)",
+                  "displayName": "LP NAV tracked",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 1
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "LP NAV tracked"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 3,
+            "width": 2,
             "height": 3
           }
         },
@@ -239,9 +343,9 @@
             }
           },
           "position": {
-            "x": 9,
+            "x": 10,
             "y": 3,
-            "width": 3,
+            "width": 2,
             "height": 3
           }
         },
@@ -420,6 +524,60 @@
         },
         {
           "widget": {
+            "name": "bar_nav",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_accounts",
+                  "fields": [
+                    {
+                      "name": "fund_name",
+                      "expression": "`fund_name`"
+                    },
+                    {
+                      "name": "nav",
+                      "expression": "SUM(`closing_balance`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "fund_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "fund_name"
+                },
+                "y": {
+                  "fieldName": "nav",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "LP net asset value by fund"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "LP net asset value by fund"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 12,
+            "width": 8,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
             "name": "tbl_anom",
             "queries": [
               {
@@ -486,9 +644,9 @@
             }
           },
           "position": {
-            "x": 4,
-            "y": 12,
-            "width": 8,
+            "x": 0,
+            "y": 19,
+            "width": 12,
             "height": 7
           }
         }

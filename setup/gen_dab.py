@@ -19,11 +19,13 @@ OUT = REPO / "resources" / "sql"
 def main() -> int:
     ns = fo.load_namespace()
     cc, di = ps.load_schema("capital_call"), ps.load_schema("distribution")
+    ca = ps.load_schema("capital_account")
     OUT.mkdir(parents=True, exist_ok=True)
     files = {
         "01_parse.sql": ps.parse_sql(ns),
         "02_extract_capital_calls.sql": ps.extract_primary_sql(ns, "capital_call", cc, "capital_calls"),
         "02_extract_distributions.sql": ps.extract_primary_sql(ns, "distribution", di, "distributions"),
+        "02_extract_capital_accounts.sql": ps.extract_primary_sql(ns, "capital_account", ca, "capital_accounts"),
         "02_classify.sql": ps.classify_sql(ns),
         "03_validate.sql": ps.validate_sql(ns),
     }
