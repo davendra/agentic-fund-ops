@@ -97,6 +97,12 @@ FROM {parsed}"""
 
 
 # ---- validate ----
+# Thresholds are demo heuristics, deliberately simple and explicit:
+#   * reconciliation tolerance is relative (<= 1% of the stated total). In production
+#     you would add an absolute floor/ceiling so a 1% break on a $1.8B notice ($18M)
+#     doesn't pass silently.
+#   * the management-fee plausibility bound (<= 5% p.a.) suits PE/private-credit funds;
+#     tune per strategy. It is info-severity — a flag for review, not a hard failure.
 CAPITAL_CALL_CHECKS = [
     ("total_called_positive", "error", "total_called IS NOT NULL", "total_called > 0",
      "concat('total_called=', total_called)"),

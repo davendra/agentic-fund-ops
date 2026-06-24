@@ -6,8 +6,9 @@ bundle:
 
 variables:
   warehouse_id:
-    description: Serverless SQL warehouse id the pipeline tasks run on
-    default: e35b4a902313dacd
+    description: Serverless SQL warehouse the pipeline tasks run on (resolved by name for portability; override with --var=warehouse_id=...)
+    lookup:
+      warehouse: Serverless Starter Warehouse
 
 include:
   - resources/*.yml

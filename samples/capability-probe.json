@@ -1,6 +1,6 @@
 {
   "workspace": "<workspace-host>",
-  "warehouse_id": "e35b4a902313dacd",
+  "warehouse_id": "<warehouse-id>",
   "probes": {
     "ai_extract": {
       "name": "ai_extract",

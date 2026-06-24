@@ -20,5 +20,5 @@
     "reconciliation": 3,
     "waterfall": 2
   },
-  "note": "Synthetic samples from the author's FundAdmin AI product. The pipeline processes the capital_call + distribution PDFs; other types are inventoried only."
+  "note": "Filename-heuristic counts across ALL 1,145 corpus files, including non-PDF (.md/.json) files (e.g. email-capital-call.md), so capital_call/distribution here exceed the PDFs the pipeline lands. The pipeline processes the 66 capital-call + distribution PDFs only (34 + 32; see corpus/landing-manifest.json); other types are inventoried for context. Synthetic samples from the author's FundAdmin AI product."
 }

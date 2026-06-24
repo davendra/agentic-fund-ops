@@ -16,6 +16,9 @@ from databricks.sdk.service.sql import StatementState
 
 REPO = Path(__file__).resolve().parent
 PROFILE = os.environ.get("DATABRICKS_CONFIG_PROFILE", "DEFAULT")
+# Convenience default for this demo's Free Edition serverless warehouse (not a
+# secret — useless without the workspace host + auth). Override for any other
+# workspace via the FUNDOPS_WAREHOUSE_ID env var; the bundle resolves by name.
 WAREHOUSE_ID = os.environ.get("FUNDOPS_WAREHOUSE_ID", "e35b4a902313dacd")
 CONFIG_PATH = REPO / "reports" / "resolved-config.json"
 

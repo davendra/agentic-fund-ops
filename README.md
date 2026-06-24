@@ -1,23 +1,50 @@
-# Agentic Fund-Ops Data Pipeline
+<!-- Hero -->
+<p align="center">
+  <img src="assets/hero.jpg" alt="Agentic Fund-Ops — trustworthy fund-document automation on Databricks" width="100%" />
+</p>
+
+<div align="center">
+
+<img src="assets/logo.jpg" alt="Agentic Fund-Ops logo" width="96" height="96" />
+
+# Agentic Fund-Ops
 
 **An AI agent that turns messy fund-administration PDFs into governed, validated, queryable data — built end-to-end on Databricks with native AI Functions, Unity Catalog, Genie, MLflow, and Asset Bundles.**
 
-> Capital-call and distribution notices arrive as unstructured PDFs in a dozen different layouts. This pipeline parses them, extracts structured fields with an LLM, **gates the model's output with deterministic arithmetic**, lands governed Delta tables, exposes a natural-language query layer, and **measures its own extraction accuracy against a hand-verified gold set** — all packaged as a one-command deployable Databricks Job.
+[![License: MIT](https://img.shields.io/badge/License-MIT-0B1F33.svg)](LICENSE)
+![Databricks native](https://img.shields.io/badge/Databricks-native_AI_Functions-FF5A3C)
+![Python 3.12](https://img.shields.io/badge/Python-3.12-0FB5A0?logo=python&logoColor=white)
+![Extraction accuracy 96.7%](https://img.shields.io/badge/extraction_accuracy-96.7%25-0FB5A0)
+![Built with Claude Code](https://img.shields.io/badge/built_with-Claude_Code-E8B23A?logo=anthropic&logoColor=white)
+![Data 100% synthetic](https://img.shields.io/badge/data-100%25_synthetic-5B6B7B)
 
-<table>
-<tr>
-<td><b>66</b><br>fund PDFs processed</td>
-<td><b>7</b><br>fund families, 3 currencies</td>
-<td><b>96.7%</b><br>field-extraction accuracy</td>
-<td><b>100%</b><br>native Databricks AI</td>
-</tr>
-</table>
+[Architecture & diagrams](docs/architecture.md) · [Brand](docs/brand.md) · [Sample outputs](samples) · [Writeup](docs/writeup.md)
 
-Built as a hands-on demonstration of **agentic data engineering** on Databricks. The agent (Claude Code + Databricks' official agent-skills) authored, ran, and validated this pipeline against a live Unity Catalog workspace. All data is **synthetic** (see [Data](#the-data)).
+</div>
+
+> Capital-call and distribution notices arrive as unstructured PDFs in a dozen different layouts. This pipeline parses them, extracts structured fields with an LLM, **gates the model's output with deterministic arithmetic**, lands governed Delta tables, exposes a natural-language query layer and a dashboard, and **measures its own extraction accuracy against a hand-verified gold set** — all packaged as a one-command deployable Databricks Job.
+
+![Agentic Fund-Ops by the numbers: 66 documents, 7 fund families, 3 currencies, 13 anomalies flagged](assets/infographic-stats.jpg)
+
+Built as a hands-on demonstration of **agentic data engineering** on Databricks. The agent (Claude Code + Databricks' official agent-skills) authored, ran, and validated this pipeline against a live Unity Catalog workspace. All data is **synthetic** (see [The data](#the-data)).
+
+---
+
+## Contents
+
+- [Architecture](#architecture)
+- [Headline results](#headline-results)
+- [The data](#the-data)
+- [Run it yourself](#run-it-yourself)
+- [Repository layout](#repository-layout)
+- [Tech](#tech)
+- [A note on honesty](#a-note-on-honesty)
 
 ---
 
 ## Architecture
+
+![Agentic Fund-Ops pipeline: ingest, parse, extract, validate, serve](assets/infographic-pipeline.jpg)
 
 ```mermaid
 flowchart TD
@@ -69,6 +96,8 @@ flowchart TD
 
 ### Extraction accuracy — *measure before you trust*
 
+![Extraction accuracy measured: ai_query 96.7% vs ai_extract baseline 81.1%, scored against 19 hand-verified gold documents](assets/infographic-eval.jpg)
+
 Two **native** strategies, scored field-by-field against 19 hand-verified gold documents (122 field instances):
 
 | Strategy | Overall | Capital calls | Distributions |
@@ -76,13 +105,21 @@ Two **native** strategies, scored field-by-field against 19 hand-verified gold d
 | **`ai_query` (Llama-3.3-70B, structured output)** | **96.7%** | 97.0% | 96.4% |
 | `ai_extract` (label-array baseline) | 81.1% | 71.2% | 92.9% |
 
-The 15-point gap is the whole point: the cheap `ai_extract` baseline silently failed on unfamiliar templates (all-null on some funds, grabbed *"$1.81x MOIC"* as a cash amount, a per-LP list as the commitment base). The eval harness **catches that** — so you ship the strategy you measured, not the one you hoped for. Logged to an MLflow experiment in the workspace.
+The ~16-point gap (96.7 − 81.1) is the whole point. The cheap `ai_extract` baseline silently failed on unfamiliar templates:
 
-The remaining `ai_query` misses are genuine and honest — e.g. a notice whose waterfall literally reads *"Preferred Return (8%): SKIPPED"* (gold `0`) that the model returned as null, and a $1.8B commitment base derived from a `1.5% × $1.8B` fee line that the model under-read. (See [`samples/eval-detail.json`](samples/eval-detail.json).)
+- returned **all-null** on some funds' layouts;
+- grabbed *"$1.81x MOIC"* as a **cash amount**;
+- read a **per-LP list** where the aggregate commitment base belonged.
+
+The eval harness **catches that** — so you ship the strategy you measured, not the one you hoped for. Logged to an MLflow experiment in the workspace.
+
+The remaining `ai_query` misses are genuine and honest — e.g. a notice whose waterfall literally reads *"Preferred Return (8%): SKIPPED"* (gold `0`) that the model returned as null, and a commitment base where the model returned a **$690M sub-total instead of the $1.8B aggregate**. (See [`samples/eval-detail.json`](samples/eval-detail.json).)
 
 ### Deterministic validation — the trust gate
 
-Every hard check passes (34/34 capital calls, 64/64 distributions on positive-amount / non-negative rules). The **warnings are the value** — the pipeline surfaced **13 anomalies** for human review:
+![AI extracts, code gates: AI-extracted fields pass through deterministic validation, splitting into PASS and FLAGGED with 13 anomalies](assets/infographic-validation.jpg)
+
+Every hard (error-severity) check passes — **34/34** on capital calls and **64/64** on distributions (these are *check instances*: the positive-amount / non-negative rules run across the 34 capital-call and 32 distribution records). The **warning- and info-level checks are where the value is** — the pipeline surfaced **13 anomalies** for human review:
 
 - 8 capital-call **line-item reconciliation** breaks (components ≠ stated total)
 - 4 distribution **waterfall** mismatches (tiers ≠ total proceeds)
@@ -139,8 +176,9 @@ The pipeline auto-detects what your workspace supports (Stage 0 probe) and resol
 ## Repository layout
 
 ```
-fundops_lib.py            shared client + SQL execution helpers
-pipeline_sql.py           single source of truth for the pipeline SQL
+assets/                    brand + infographic images
+fundops_lib.py             shared client + SQL execution helpers
+pipeline_sql.py            single source of truth for the pipeline SQL
 setup/
   00_probe_capabilities.py   what AI Functions / Genie are available
   01_bootstrap_uc.py         create catalog / schemas / volume
@@ -162,16 +200,19 @@ databricks.yml             Asset Bundle
 resources/                 Job definition + auto-generated SQL tasks
 corpus/landing/            the committed 66-PDF dataset
 samples/                   captured run artifacts (accuracy, Genie transcript)
+docs/                      architecture diagrams, brand, writeup, blurbs
 ```
 
 ---
 
 ## Tech
 
-Databricks — Unity Catalog · AI Functions (`ai_parse_document`, `ai_query`, `ai_extract`, `ai_classify`) · Foundation Model APIs · Genie · AI/BI Dashboards (Lakeview) · MLflow · Asset Bundles · serverless SQL. Python · `databricks-sdk`.
+Databricks — Unity Catalog · AI Functions (`ai_parse_document`, `ai_query`, `ai_extract`, `ai_classify`) · Foundation Model APIs · Genie · AI/BI Dashboards (Lakeview) · MLflow · Asset Bundles · serverless SQL. Python · `databricks-sdk`. Brand imagery generated with Gemini (Go Bananas); diagrams in Mermaid.
+
+---
 
 ## A note on honesty
 
-This is a learning-and-demonstration project, built hands-on to show agentic data-engineering patterns on Databricks against a real workspace — not a claim of production deployment. The value is in the *approach*: set-based AI Functions, a measured eval harness rather than a vibe, and deterministic validation gating LLM output. The data is synthetic; the engineering is real.
+This is a learning-and-demonstration project, built hands-on (on Databricks Free Edition) to show agentic data-engineering patterns against a real workspace — not a claim of production deployment. The value is in the *approach*: set-based AI Functions, a measured eval harness rather than a vibe, and deterministic validation gating LLM output. The author spent six years leading AI & automation at a global fund administrator, so the data-engineering judgment, eval discipline, and fund-operations domain are real — Databricks is simply the newest tool expressing them. The data is synthetic; the engineering is real.
 
-*License: MIT.*
+*License: [MIT](LICENSE).*
