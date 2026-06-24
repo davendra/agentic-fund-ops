@@ -5,6 +5,8 @@
   --sans:"Inter",system-ui,sans-serif; --head:"Space Grotesk",var(--sans); --mono:"JetBrains Mono",monospace;
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+img,canvas{max-width:100%;height:auto}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--head);line-height:1.15;letter-spacing:-.01em;margin:0}

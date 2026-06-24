@@ -9,7 +9,7 @@
   <meta property="og:description" content="Trustworthy fund-document automation on Databricks — AI extracts, deterministic code gates. 96.7% measured extraction accuracy over synthetic fund data." />
   <meta property="og:image" content="assets/hero.jpg" />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="assets/logo.jpg" />
+  <link rel="icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -18,7 +18,7 @@
 <body>
   <header class="nav">
     <a class="brand" href="#top">
-      <img src="assets/logo.jpg" alt="Agentic Fund-Ops logo" width="34" height="34" />
+      <img src="assets/logo.png" alt="Agentic Fund-Ops logo" width="34" height="34" />
       <span>Agentic&nbsp;Fund-Ops</span>
     </a>
     <nav>
@@ -44,7 +44,7 @@
         <p class="synthetic-note">100% synthetic data · a hands-on demonstration, not a production system.</p>
       </div>
       <div class="hero-art">
-        <img src="assets/hero.jpg" alt="Agentic Fund-Ops — trustworthy fund-document automation on Databricks" />
+        <img src="assets/hero-art.jpg" alt="Abstract illustration: fund documents flowing through extraction nodes into a bar chart and a validation check mark" />
       </div>
     </section>
 
@@ -59,12 +59,12 @@
         <h2>How it works</h2>
         <p>Five set-based stages over native Databricks AI Functions — the model handles judgment, deterministic SQL handles trust.</p>
       </div>
-      <img class="figure" src="assets/infographic-pipeline.jpg" alt="Pipeline: ingest, parse (ai_parse_document), extract (ai_query), validate (deterministic SQL), serve (Genie + dashboard)" />
+      <img class="figure" loading="lazy" src="assets/infographic-pipeline.jpg" alt="Pipeline: ingest, parse (ai_parse_document), extract (ai_query), validate (deterministic SQL), serve (Genie + dashboard)" />
       <div class="steps">
         <div class="step"><span class="step-k">Parse</span><code>ai_parse_document</code><p>Every PDF → text in one warehouse query.</p></div>
         <div class="step"><span class="step-k">Extract</span><code>ai_query</code><p>Structured JSON into typed columns, schema-driven.</p></div>
         <div class="step"><span class="step-k">Classify</span><code>ai_classify</code><p>Doc-type routing, cross-checked 66/66.</p></div>
-        <div class="step"><span class="step-k">Validate</span><code>deterministic SQL</code><p>Arithmetic reconciliation — the trust gate.</p></div>
+        <div class="step"><span class="step-k">Validate</span><code>deterministic SQL</code><p>Arithmetic reconciliation; catches what the model misses.</p></div>
         <div class="step"><span class="step-k">Serve</span><code>Genie · AI/BI · MLflow</code><p>Query, visualise, and measure the output.</p></div>
       </div>
     </section>
@@ -112,8 +112,8 @@
           <span class="tag">Scaffolded with Databricks AI/BI + Genie</span>
           <p>Nine analytical tabs — Executive Summary, Fund Performance Rankings, Year-over-Year, Quarterly Breakdown and more — with global fund and date-range filters.</p>
         </div>
-        <figure><img src="assets/dashboards/cc-executive-summary.png" alt="Capital Calls Analysis — Executive Summary: KPI tiles and capital-calls trend" /><figcaption>Executive Summary</figcaption></figure>
-        <figure><img src="assets/dashboards/cc-fund-rankings.png" alt="Capital Calls Analysis — Fund Performance Rankings: rankings table and top-fund bar charts" /><figcaption>Fund Performance Rankings</figcaption></figure>
+        <figure><img loading="lazy" src="assets/dashboards/cc-executive-summary.png" alt="Capital Calls Analysis — Executive Summary: KPI tiles and capital-calls trend" /><figcaption>Executive Summary</figcaption></figure>
+        <figure><img loading="lazy" src="assets/dashboards/cc-fund-rankings.png" alt="Capital Calls Analysis — Fund Performance Rankings: rankings table and top-fund bar charts" /><figcaption>Fund Performance Rankings</figcaption></figure>
       </div>
 
       <div class="dash">
@@ -122,7 +122,7 @@
           <span class="tag">The pipeline's operational dashboard</span>
           <p>KPI tiles, capital-by-currency and documents-by-fund charts, and a live validation-anomalies review table — the same numbers the validation and eval stages produce.</p>
         </div>
-        <figure class="wide"><img src="assets/dashboards/fundops-overview-charts.png" alt="Agentic Fund-Ops Overview — capital called by currency and documents processed by fund" /><figcaption>Capital by currency · documents by fund</figcaption></figure>
+        <figure class="wide"><img loading="lazy" src="assets/dashboards/fundops-overview-charts.png" alt="Agentic Fund-Ops Overview — capital called by currency and documents processed by fund" /><figcaption>Capital by currency · documents by fund</figcaption></figure>
       </div>
     </section>
 
