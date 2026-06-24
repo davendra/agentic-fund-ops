@@ -11,14 +11,15 @@
 
 **An AI agent that turns messy fund-administration PDFs into governed, validated, queryable data — built end-to-end on Databricks with native AI Functions, Unity Catalog, Genie, MLflow, and Asset Bundles.**
 
+[![Live demo](https://img.shields.io/badge/live_demo-agentic--fund--ops.vercel.app-FF5A3C?logo=vercel&logoColor=white)](https://agentic-fund-ops.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0B1F33.svg)](LICENSE)
-![Databricks native](https://img.shields.io/badge/Databricks-native_AI_Functions-FF5A3C)
+![Databricks native](https://img.shields.io/badge/Databricks-native_AI_Functions-0FB5A0)
 ![Python 3.12](https://img.shields.io/badge/Python-3.12-0FB5A0?logo=python&logoColor=white)
 ![Extraction accuracy 96.7%](https://img.shields.io/badge/extraction_accuracy-96.7%25-0FB5A0)
 ![Built with Claude Code](https://img.shields.io/badge/built_with-Claude_Code-E8B23A?logo=anthropic&logoColor=white)
 ![Data 100% synthetic](https://img.shields.io/badge/data-100%25_synthetic-5B6B7B)
 
-[Architecture & diagrams](docs/architecture.md) · [Brand](docs/brand.md) · [Sample outputs](samples) · [Writeup](docs/writeup.md)
+**[🔗 Live site](https://agentic-fund-ops.vercel.app)** (mirror: [GitHub Pages](https://davendra.github.io/agentic-fund-ops/)) · [Architecture & diagrams](docs/architecture.md) · [Brand](docs/brand.md) · [Sample outputs](samples) · [Writeup](docs/writeup.md)
 
 </div>
 
