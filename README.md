@@ -19,27 +19,37 @@ Built as a hands-on demonstration of **agentic data engineering** on Databricks.
 
 ## Architecture
 
+```mermaid
+flowchart TD
+    PDF["66 fund PDFs<br/>capital calls + distributions · 7 funds · USD/EUR/GBP"]
+    VOL[("Unity Catalog Volume<br/>raw/landing")]
+    PARSE["ai_parse_document<br/>PDF to text"]
+    EXTRACT["ai_query to Llama-3.3-70B<br/>structured extraction"]
+    BASE["ai_extract<br/>baseline"]
+    CLS["ai_classify<br/>routing 66/66"]
+    SILVER[("silver.capital_calls<br/>silver.distributions")]
+    VALIDATE["deterministic SQL validation<br/>arithmetic reconciliation gates"]
+    VR[("validation_results<br/>13 anomalies flagged")]
+    GENIE["Genie Space<br/>natural-language to SQL"]
+    DASH["AI/BI Dashboard<br/>KPIs · charts · anomalies"]
+    EVAL["MLflow eval<br/>ai_query 96.7% vs ai_extract 81.1%"]
+    GOLD[("eval/gold<br/>19 hand-verified")]
+    DAB["Asset Bundle to serverless Job"]
+
+    PDF -->|upload| VOL --> PARSE --> EXTRACT --> SILVER
+    PARSE -. baseline .-> BASE
+    PARSE --> CLS
+    SILVER --> VALIDATE --> VR
+    SILVER --> GENIE
+    SILVER --> DASH
+    VR --> DASH
+    SILVER --> EVAL
+    BASE --> EVAL
+    GOLD --> EVAL
+    VALIDATE -. packaged as .-> DAB
 ```
- 66 fund PDFs (capital calls + distribution notices, 7 funds, USD/EUR/GBP)
-        │
-        ▼  upload → Unity Catalog Volume  /Volumes/fund_ops/raw/landing
-   ┌──────────────────────────────────────────────────────────────────┐
-   │ PARSE      ai_parse_document      PDF → text         (set-based)   │
-   │ EXTRACT    ai_query → Llama-3.3-70B, structured JSON output        │
-   │            ‖ ai_extract (baseline, for the eval comparison)        │
-   │ CLASSIFY   ai_classify            routing check (66/66 agree)      │
-   │ VALIDATE   deterministic SQL      arithmetic reconciliation gates  │
-   └──────────────────────────────────────────────────────────────────┘
-        │
-        ▼  governed Delta tables in  fund_ops.silver
-   ┌─────────────────────────────┬────────────────────────────────────┐
-   │ GENIE  natural-language Q&A  │ MLflow GenAI eval                  │
-   │ "total called by currency?"  │ ai_query 96.7% vs ai_extract 81.1% │
-   │  → generated SQL → answer    │ scored vs 19 hand-verified gold docs│
-   └─────────────────────────────┴────────────────────────────────────┘
-        │
-        ▼  packaged as a Databricks Asset Bundle → deployable serverless Job
-```
+
+> **More diagrams** — the agentic build loop, the Job task DAG, the eval harness, the Genie NL→SQL sequence, and full table lineage — are in **[docs/architecture.md](docs/architecture.md)**.
 
 | Stage | Databricks primitive | What it does |
 |------|----------------------|--------------|
