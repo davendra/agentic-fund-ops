@@ -34,6 +34,7 @@ Built as a hands-on demonstration of **agentic data engineering** on Databricks.
 
 - [Architecture](#architecture)
 - [Headline results](#headline-results)
+- [Dashboards](#dashboards)
 - [The data](#the-data)
 - [Run it yourself](#run-it-yourself)
 - [Repository layout](#repository-layout)
@@ -138,6 +139,30 @@ Real exchanges captured from the Conversation API ([`samples/genie-demo.json`](s
 > **"Which documents failed a validation check?"**
 > → `SELECT file_name, check_name … WHERE passed = false`
 > → **13 documents** — `waterfall_reconciles`, `line_items_reconcile`, `fee_rate_plausible`
+
+---
+
+## Dashboards
+
+On top of the governed `fund_ops.silver` tables, two **Databricks AI/BI dashboards** (Lakeview, each with a built-in *Ask Genie* button for natural-language follow-ups) turn the pipeline's output into something a fund team would actually use. Both read the Delta tables directly, so they refresh whenever the pipeline Job re-runs. All figures are over synthetic data.
+
+### 1. Capital Calls Analysis
+
+A deep analytical dashboard built with Databricks AI/BI + **Genie**, spanning **nine tabs** — *Executive Summary · Total Cost Analysis · Fund Performance Rankings · Investment vs Fees · Expense Analysis · Overview · Year-over-Year Analysis · Quarterly Breakdown · Fund Comparison by Quarter* — with global **Select Fund** and **Due Date Range** filters.
+
+**Executive Summary** — headline KPI tiles (total capital called, total calls = 34, average call size ≈ $92.8M, average management-fee rate) above a *Capital Calls Trend* line chart by year-quarter (2019 → 2027).
+
+![Capital Calls Analysis — Executive Summary tab: KPI tiles and the capital-calls trend over time](assets/dashboards/cc-executive-summary.png)
+
+**Fund Performance Rankings** — a searchable *Complete Fund Rankings* table (total capital called, number of calls, average call size, total management fees per fund), with *Top Funds by Total Capital Called* and *Most Active Funds by Call Count* bar charts.
+
+![Capital Calls Analysis — Fund Performance Rankings tab: rankings table and top-fund bar charts](assets/dashboards/cc-fund-rankings.png)
+
+### 2. Agentic Fund-Ops Overview
+
+The pipeline's own operational dashboard — defined in [`dashboards/fund_ops.lvdash.json`](dashboards/fund_ops.lvdash.json) and deployable with [`setup/05_create_dashboard.sh`](setup/05_create_dashboard.sh). It surfaces KPI tiles (capital calls, distributions, USD capital called, anomalies flagged), the two charts below (**capital called by currency** and **documents processed by fund**, split by doc type), distributions-by-type, and the live **validation-anomalies review table** — the same numbers the validation and eval stages produce.
+
+![Agentic Fund-Ops Overview — capital called by currency, and documents processed by fund split by document type](assets/dashboards/fundops-overview-charts.png)
 
 ---
 

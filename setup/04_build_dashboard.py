@@ -32,6 +32,23 @@ def counter(name, ds, fname, expr, title, fmt=None):
                  "frame": {"showTitle": True, "title": title}}}}
 
 
+def counter_measure(name, ds, measure, title, fmt=None):
+    """Counter backed by a dataset-level MEASURE column (robust for conditional sums)."""
+    fld = f"measure({measure})"
+    value = {"fieldName": fld, "displayName": title}
+    if fmt:
+        value["format"] = fmt
+    return {"widget": {
+        "name": name,
+        "queries": [{"name": "main_query", "query": {
+            "datasetName": ds,
+            "fields": [{"name": fld, "expression": f"MEASURE(`{measure}`)"}],
+            "disaggregated": False}}],
+        "spec": {"version": 2, "widgetType": "counter",
+                 "encodings": {"value": value},
+                 "frame": {"showTitle": True, "title": title}}}}
+
+
 def bar(name, ds, xname, xexpr, yname, yexpr, title, color=None):
     fields = [{"name": xname, "expression": xexpr}, {"name": yname, "expression": yexpr}]
     enc = {"x": {"fieldName": xname, "scale": {"type": "categorical"}, "displayName": xname},
@@ -67,12 +84,16 @@ def pos(x, y, w, h):
 dashboard = {
     "datasets": [
         {"name": "ds_calls", "displayName": "Capital calls",
-         "queryLines": ["SELECT file_name, fund_name, total_called, currency FROM capital_calls"]},
+         "queryLines": ["SELECT file_name, fund_name, total_called, currency FROM capital_calls"],
+         "columns": [{"displayName": "USD called",
+                      "expression": "SUM(CASE WHEN `currency`='USD' THEN `total_called` ELSE 0 END)"}]},
         {"name": "ds_dist", "displayName": "Distributions",
          "queryLines": ["SELECT file_name, fund_name, total_proceeds, currency, "
                         "coalesce(distribution_type,'(unspecified)') AS distribution_type FROM distributions"]},
         {"name": "ds_validation", "displayName": "Validation results",
-         "queryLines": ["SELECT file_name, doc_type, check_name, severity, passed, detail FROM validation_results"]},
+         "queryLines": ["SELECT file_name, doc_type, check_name, severity, passed, detail FROM validation_results"],
+         "columns": [{"displayName": "Anomalies",
+                      "expression": "SUM(CASE WHEN `passed`=false THEN 1 ELSE 0 END)"}]},
         {"name": "ds_docs", "displayName": "Documents by fund",
          "queryLines": ["SELECT split(file_name,'__')[0] AS fund, doc_type FROM capital_calls\n",
                         "UNION ALL\n",
@@ -96,12 +117,9 @@ dashboard = {
              "position": pos(0, 3, 3, 3)},
             {**counter("kpi_dists", "ds_dist", "dists", "COUNT(`file_name`)", "Distributions"),
              "position": pos(3, 3, 3, 3)},
-            {**counter("kpi_usd", "ds_calls", "usd_called",
-                       "SUM(CASE WHEN `currency`='USD' THEN `total_called` ELSE 0 END)",
-                       "USD capital called", USD_FMT),
+            {**counter_measure("kpi_usd", "ds_calls", "USD called", "USD capital called", USD_FMT),
              "position": pos(6, 3, 3, 3)},
-            {**counter("kpi_anom", "ds_validation", "anomalies",
-                       "SUM(CASE WHEN `passed`=false THEN 1 ELSE 0 END)", "Anomalies flagged"),
+            {**counter_measure("kpi_anom", "ds_validation", "Anomalies", "Anomalies flagged"),
              "position": pos(9, 3, 3, 3)},
 
             {**bar("bar_ccy", "ds_calls", "currency", "`currency`", "called", "SUM(`total_called`)",

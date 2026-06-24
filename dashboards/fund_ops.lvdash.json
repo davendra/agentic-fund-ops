@@ -5,6 +5,12 @@
       "displayName": "Capital calls",
       "queryLines": [
         "SELECT file_name, fund_name, total_called, currency FROM capital_calls"
+      ],
+      "columns": [
+        {
+          "displayName": "USD called",
+          "expression": "SUM(CASE WHEN `currency`='USD' THEN `total_called` ELSE 0 END)"
+        }
       ]
     },
     {
@@ -19,6 +25,12 @@
       "displayName": "Validation results",
       "queryLines": [
         "SELECT file_name, doc_type, check_name, severity, passed, detail FROM validation_results"
+      ],
+      "columns": [
+        {
+          "displayName": "Anomalies",
+          "expression": "SUM(CASE WHEN `passed`=false THEN 1 ELSE 0 END)"
+        }
       ]
     },
     {
@@ -154,8 +166,8 @@
                   "datasetName": "ds_calls",
                   "fields": [
                     {
-                      "name": "usd_called",
-                      "expression": "SUM(CASE WHEN `currency`='USD' THEN `total_called` ELSE 0 END)"
+                      "name": "measure(USD called)",
+                      "expression": "MEASURE(`USD called`)"
                     }
                   ],
                   "disaggregated": false
@@ -167,7 +179,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "usd_called",
+                  "fieldName": "measure(USD called)",
                   "displayName": "USD capital called",
                   "format": {
                     "type": "number-currency",
@@ -203,8 +215,8 @@
                   "datasetName": "ds_validation",
                   "fields": [
                     {
-                      "name": "anomalies",
-                      "expression": "SUM(CASE WHEN `passed`=false THEN 1 ELSE 0 END)"
+                      "name": "measure(Anomalies)",
+                      "expression": "MEASURE(`Anomalies`)"
                     }
                   ],
                   "disaggregated": false
@@ -216,7 +228,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "anomalies",
+                  "fieldName": "measure(Anomalies)",
                   "displayName": "Anomalies flagged"
                 }
               },
