@@ -2,6 +2,13 @@
    KPIs, charts (Chart.js) and the validation-anomalies table. No backend. */
 const C = { navy: "#0B1F33", coral: "#FF5A3C", teal: "#0FB5A0", gold: "#E8B23A", slate: "#5B6B7B", line: "#e4e9f0" };
 
+// Track chart instances so a re-render (snapshot -> live upgrade) can dispose them.
+let CHARTS = [];
+const mk = (el, cfg) => { const c = new (window.Chart)(el, cfg); CHARTS.push(c); return c; };
+let liveDone = false;
+const startBar = () => { const b = document.getElementById("progress"); if (b) b.classList.add("on"); };
+const stopBar = () => { const b = document.getElementById("progress"); if (b) b.classList.remove("on"); };
+
 const money = (v) => {
   const a = Math.abs(v);
   if (a >= 1e9) return "$" + (v / 1e9).toFixed(1) + "B";
@@ -43,7 +50,7 @@ function charts(d) {
   Chart.defaults.color = C.slate;
 
   // currency
-  new Chart(document.getElementById("chart-currency"), {
+  mk(document.getElementById("chart-currency"), {
     type: "bar",
     data: { labels: d.by_currency.map((r) => r.currency),
       datasets: [{ data: d.by_currency.map((r) => r.total_called), backgroundColor: C.teal, borderRadius: 6, maxBarThickness: 90 }] },
@@ -56,7 +63,7 @@ function charts(d) {
   // docs by fund (stacked)
   const funds = [...new Set(d.docs_by_fund.map((r) => r.fund))];
   const pick = (t) => funds.map((f) => (d.docs_by_fund.find((r) => r.fund === f && r.doc_type === t) || {}).n || 0);
-  new Chart(document.getElementById("chart-funds"), {
+  mk(document.getElementById("chart-funds"), {
     type: "bar",
     data: { labels: funds, datasets: [
       { label: "capital_call", data: pick("capital_call"), backgroundColor: C.teal, borderRadius: 4 },
@@ -70,7 +77,7 @@ function charts(d) {
   // LP net asset value by fund (capital accounts) — only if data present
   const navEl = document.getElementById("chart-nav");
   if (navEl && d.nav_by_fund && d.nav_by_fund.length) {
-    new Chart(navEl, {
+    mk(navEl, {
       type: "bar",
       data: { labels: d.nav_by_fund.map((r) => r.fund.replace(/[-_]/g, " ")),
         datasets: [{ data: d.nav_by_fund.map((r) => r.nav), backgroundColor: C.gold, borderRadius: 6, maxBarThickness: 48 }] },
@@ -83,7 +90,7 @@ function charts(d) {
 
   // distributions by type (doughnut)
   const palette = [C.teal, C.coral, C.gold, C.navy, C.slate, "#8aa0b3"];
-  new Chart(document.getElementById("chart-disttype"), {
+  mk(document.getElementById("chart-disttype"), {
     type: "doughnut",
     data: { labels: d.dist_by_type.map((r) => r.type),
       datasets: [{ data: d.dist_by_type.map((r) => r.n), backgroundColor: palette, borderWidth: 2, borderColor: "#fff" }] },
@@ -92,7 +99,7 @@ function charts(d) {
   });
 
   // trend (line)
-  new Chart(document.getElementById("chart-trend"), {
+  mk(document.getElementById("chart-trend"), {
     type: "line",
     data: { labels: d.trend.map((r) => r.yq),
       datasets: [{ data: d.trend.map((r) => r.total_called), borderColor: C.teal, backgroundColor: "rgba(15,181,160,.12)",
@@ -104,7 +111,7 @@ function charts(d) {
 
   // eval comparison
   const e = d.eval.accuracy_pct;
-  new Chart(document.getElementById("chart-eval"), {
+  mk(document.getElementById("chart-eval"), {
     type: "bar",
     data: { labels: ["ai_query\n(structured)", "ai_extract\n(baseline)"],
       datasets: [{ data: [e.ai_query, e.ai_extract], backgroundColor: [C.teal, C.slate], borderRadius: 7, maxBarThickness: 110 }] },
@@ -131,10 +138,27 @@ function setSource(d) {
   else { el.textContent = "● Snapshot"; el.className = "src snap"; }
 }
 
-// Try the live serverless endpoint (Vercel) first; fall back to the baked
-// snapshot (data.json) — which is what GitHub Pages serves.
+function render(d) {
+  kpis(d);
+  CHARTS.forEach((c) => c.destroy());
+  CHARTS = [];
+  charts(d);
+  anomalies(d);
+  setSource(d);
+}
+
+// Render the baked snapshot INSTANTLY so the charts are never blank, then
+// upgrade to live Databricks data when the serverless query returns (its cold
+// start can take a few seconds). The top progress bar shows while live is in
+// flight; if live succeeds it wins, otherwise the snapshot stays.
+startBar();
+fetch("data.json")
+  .then((r) => r.json())
+  .then((d) => { if (!liveDone) render(d); })
+  .catch((e) => console.error("snapshot load failed", e));
+
 fetch("/api/data")
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error("no api"))))
-  .catch(() => fetch("data.json").then((r) => r.json()))
-  .then((d) => { kpis(d); charts(d); anomalies(d); setSource(d); })
-  .catch((e) => console.error("data load failed", e));
+  .then((d) => { if (d && d.kpis) { liveDone = true; render(d); } })
+  .catch(() => {})
+  .finally(stopBar);

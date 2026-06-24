@@ -5,6 +5,13 @@
   --sans:"Inter",system-ui,sans-serif; --head:"Space Grotesk",var(--sans); --mono:"JetBrains Mono",monospace;
 }
 *{box-sizing:border-box}
+/* top loading bar (shown while live Databricks data is fetched) */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:50;pointer-events:none;opacity:0;transition:opacity .25s}
+.progress.on{opacity:1}
+.progress::before{content:"";position:absolute;top:0;height:100%;width:35%;border-radius:0 3px 3px 0;
+  background:linear-gradient(90deg,transparent,var(--coral),var(--teal),transparent);animation:loadbar 1.15s ease-in-out infinite}
+@keyframes loadbar{0%{left:-35%}100%{left:100%}}
+@media(prefers-reduced-motion:reduce){.progress::before{animation-duration:2.4s}}
 html,body{max-width:100%;overflow-x:hidden}
 img,canvas{max-width:100%;height:auto}
 html{scroll-behavior:smooth}
@@ -47,7 +54,7 @@ code{font-family:var(--mono);font-size:.86em;background:rgba(11,31,51,.06);paddi
 /* numbers band */
 .band{background:var(--navy);color:#fff}
 .kpis{max-width:var(--maxw);margin:0 auto;padding:clamp(1.5rem,4vw,2.4rem) clamp(1rem,4vw,2rem);
-  display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(255,255,255,.1);border-radius:14px;overflow:hidden}
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);border-radius:14px;overflow:hidden}
 .kpi{background:var(--navy);padding:1.1rem 1rem;text-align:center}
 .kpi .v{font-family:var(--head);font-weight:700;font-size:clamp(1.4rem,3vw,2rem);line-height:1}
 .kpi .l{font-size:.76rem;color:#9fb0c0;margin-top:.4rem;text-transform:uppercase;letter-spacing:.06em}
